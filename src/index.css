@@ -9,4 +9,41 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --border-color: #E2E8F0;
+  --blue-color: #98BEF6;
+  --cyan-color: #A6F6E8;
+  --pink-color: #F592D8;
+  --yellow-color: #FDFD94;
+  --green-color: #94FB80;
+  --peach-color: #F9CEA4;
+  --purple-color: #B1AEFC;
+  --red-color: #FF9898;
+  --primary-color: #000000;
+  --secondary-color: #383838;
+  
+  --danger-color: #FF7878;
+  --success-color: #66D857;
+  --warning-color: #FFFF2C;
+  --disabled-color: #8E8E8E;
+
+  --background-color: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color: #2D2F32;
+    --blue-color: #306CC7;
+    --cyan-color: #40B19B;
+    --pink-color: #D847AC;
+    --yellow-color: #B4B42E;
+    --green-color: #3CB85D;
+    --peach-color: #CE8C4A;
+    --purple-color: #625DDE;
+    --red-color: #C54444;
+    --primary-color: #FFFFFF;
+    --secondary-color: #D1D1D1;
+
+    --background-color: #121212;
+  }
 }
