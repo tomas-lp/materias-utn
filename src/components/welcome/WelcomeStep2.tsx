@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card';
 
 import { Button } from '@/components/ui/button';
-import { Command, CommandInput } from '@/components/ui/command';
+import { SearchInput } from '../ui/input';
 import WelcomeListItem from '../ui/WelcomeListItem';
 import { motion } from 'motion/react';
 
@@ -42,9 +42,7 @@ export default function WelcomeStep2(props: Props) {
               </CardDescription>
             </CardHeader>
             <CardContent className='flex flex-col space-y-4'>
-              <Command className='w-full'>
-                <CommandInput placeholder='Ingresa un nombre...' />
-              </Command>
+              <SearchInput placeholder='Ingresa un nombre...'/>
               <div className='flex flex-row space-x-4'>
                 <div className='flex flex-col space-y-4 w-full'>
                   <div className='flex flex-col space-y-2'>

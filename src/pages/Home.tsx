@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <div className='w-screen h-screen bg-app-background flex justify-center items-center'>
-      <div className='w-10/12 h-[70%] flex flex-row justify-center items-center space-x-16'>
+      <div className='w-10/12 h-[85%] 2xl:h-[70%] flex flex-row justify-center items-center space-x-16'>
         <WelcomeStep1
           variant={
             welcomeStep === 1 ? 'active' : welcomeStep < 1 ? 'before' : 'after'

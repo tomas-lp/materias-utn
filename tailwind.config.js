@@ -83,7 +83,28 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+
+			// fontSize: {
+			// 	xs: '0.75rem',
+			// 	sm: '0.875rem',
+			// 	base: '1rem',
+			// 	lg: '1.125rem',
+			// 	xl: '1.25rem',
+			// 	'2xl': '1.5rem',
+			// 	'3xl': '1.875rem',
+			// 	'4xl': '2.25rem',
+			// }
+			fontSize: {
+				xs: 'clamp(0.66rem, 0.05vi + 0.65rem, 0.69rem)',
+				sm: 'clamp(0.7rem, 0.2vi + 0.65rem, 0.83rem)',
+				base: 'clamp(0.75rem, 0.38vi + 0.65rem, 1rem)',
+				lg: 'clamp(0.8rem, 0.62vi + 0.65rem, 1.2rem)',
+				xl: 'clamp(0.85rem, 0.9vi + 0.63rem, 1.44rem)',
+				'2xl': 'clamp(0.91rem, 1.26vi + 0.6rem, 1.73rem)',
+				'3xl': 'clamp(0.97rem, 1.69vi + 0.55rem, 2.07rem)',
+				'4xl': 'clamp(1.04rem, 2.23vi + 0.48rem, 2.49rem)',
+			}
   	}
   },
   plugins: [require("tailwindcss-animate")],
