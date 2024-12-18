@@ -9,7 +9,7 @@ import {
 
 import { Button } from '@/components/ui/button';
 import { SearchInput } from '../ui/input';
-import WelcomeListItem from '../ui/WelcomeListItem';
+import WelcomeListItem from './WelcomeListItem';
 import { motion } from 'motion/react';
 
 type Props = {
