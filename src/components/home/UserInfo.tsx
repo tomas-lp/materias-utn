@@ -39,7 +39,7 @@ export default function UserInfo(props: Props) {
       </div>
 
       {props.open && (
-        <Card className='w-96 shadow-sm shadow-white/10 absolute top-[100%]'>
+        <Card className='w-96 shadow-sm shadow-primary/10 absolute top-[100%] z-10'>
           <CardHeader>
             <CardTitle className='font-semibold text-base'>
               Configuración del usuario

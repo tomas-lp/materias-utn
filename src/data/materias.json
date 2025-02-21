@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "nivel": 1,
+    "materia": "Análisis Matemático I",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 2,
+    "nivel": 1,
+    "materia": "Álgebra y Geometría Analítica",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 3,
+    "nivel": 1,
+    "materia": "Física I",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 4,
+    "nivel": 1,
+    "materia": "Inglés I",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 5,
+    "nivel": 1,
+    "materia": "Lógica y Estructuras Discretas",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 6,
+    "nivel": 1,
+    "materia": "Algoritmos y Estructuras de Datos",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 7,
+    "nivel": 1,
+    "materia": "Arquitectura de Computadoras",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 8,
+    "nivel": 1,
+    "materia": "Sistemas y Procesos de Negocio",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 9,
+    "nivel": 2,
+    "materia": "Análisis Matemático II",
+    "cursadas": [1, 2],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 10,
+    "nivel": 2,
+    "materia": "Física II",
+    "cursadas": [1, 3],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 11,
+    "nivel": 2,
+    "materia": "Ingeniería y Sociedad",
+    "cursadas": [],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 12,
+    "nivel": 2,
+    "materia": "Inglés II",
+    "cursadas": [4],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 13,
+    "nivel": 2,
+    "materia": "Sintaxis y Semántica de los Lenguajes",
+    "cursadas": [5, 6],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 14,
+    "nivel": 2,
+    "materia": "Paradigmas de Programación",
+    "cursadas": [5, 6],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 15,
+    "nivel": 2,
+    "materia": "Sistemas Operativos",
+    "cursadas": [7],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 16,
+    "nivel": 2,
+    "materia": "Análisis de Sistemas de Información",
+    "cursadas": [6, 8],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 17,
+    "nivel": 3,
+    "materia": "Probabilidad y Estadística",
+    "cursadas": [1, 2],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 18,
+    "nivel": 3,
+    "materia": "Economía",
+    "cursadas": [],
+    "aprobadas": [1, 2],
+    "estado": ""
+  },
+  {
+    "id": 19,
+    "nivel": 3,
+    "materia": "Bases de Datos",
+    "cursadas": [13, 14, 15, 16],
+    "aprobadas": [5, 6],
+    "estado": ""
+  },
+  {
+    "id": 20,
+    "nivel": 3,
+    "materia": "Desarrollo de Software",
+    "cursadas": [14, 15, 16],
+    "aprobadas": [5, 6],
+    "estado": ""
+  },
+  {
+    "id": 21,
+    "nivel": 3,
+    "materia": "Comunicación de Datos",
+    "cursadas": [],
+    "aprobadas": [3, 4, 5, 6, 7],
+    "estado": ""
+  },
+  {
+    "id": 22,
+    "nivel": 3,
+    "materia": "Análisis Numérico",
+    "cursadas": [9],
+    "aprobadas": [1, 2],
+    "estado": ""
+  },
+  {
+    "id": 23,
+    "nivel": 3,
+    "materia": "Diseño de Sistemas de Información",
+    "cursadas": [14, 15, 16],
+    "aprobadas": [4, 6, 8],
+    "estado": ""
+  },
+  {
+    "id": 24,
+    "nivel": 3,
+    "materia": "Legislación",
+    "cursadas": [11],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 25,
+    "nivel": 4,
+    "materia": "Ingeniería y Calidad de Software",
+    "cursadas": [19, 20, 21, 22, 23],
+    "aprobadas": [13, 14],
+    "estado": ""
+  },
+  {
+    "id": 26,
+    "nivel": 4,
+    "materia": "Redes de Datos",
+    "cursadas": [15, 16, 17, 18, 19, 20, 21],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 27,
+    "nivel": 4,
+    "materia": "Investigación Operativa",
+    "cursadas": [17, 18, 19, 20, 21, 22],
+    "aprobadas": [],
+    "estado": ""
+  },
+  {
+    "id": 28,
+    "nivel": 4,
+    "materia": "Simulación",
+    "cursadas": [17],
+    "aprobadas": [9],
+    "estado": ""
+  },
+  {
+    "id": 29,
+    "nivel": 4,
+    "materia": "Tecnologías para la automatización",
+    "cursadas": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "aprobadas": [9],
+    "estado": ""
+  },
+  {
+    "id": 30,
+    "nivel": 4,
+    "materia": "Administración de Sistemas de Información",
+    "cursadas": [18, 19, 20, 21, 22, 23],
+    "aprobadas": [16],
+    "estado": ""
+  },
+  {
+    "id": 31,
+    "nivel": 5,
+    "materia": "Inteligencia Artificial",
+    "cursadas": [28],
+    "aprobadas": [17, 18, 19, 20, 21, 22],
+    "estado": ""
+  },
+  {
+    "id": 32,
+    "nivel": 5,
+    "materia": "Ciencia de Datos",
+    "cursadas": [28],
+    "aprobadas": [17, 18, 19],
+    "estado": ""
+  },
+  {
+    "id": 33,
+    "nivel": 5,
+    "materia": "Sistemas de Gestión",
+    "cursadas": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    "aprobadas": [23],
+    "estado": ""
+  },
+  {
+    "id": 34,
+    "nivel": 5,
+    "materia": "Gestión Gerencial",
+    "cursadas": [24, 25, 26, 27, 28, 29, 30],
+    "aprobadas": [18],
+    "estado": ""
+  },
+  {
+    "id": 35,
+    "nivel": 5,
+    "materia": "Seguridad en los Sistemas de Información",
+    "cursadas": [26, 27, 28, 29, 30],
+    "aprobadas": [20, 21],
+    "estado": ""
+  },
+  {
+    "id": 36,
+    "nivel": 5,
+    "materia": "Proyecto Final",
+    "cursadas": [25, 26, 27, 28, 29, 30],
+    "aprobadas": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "estado": ""
+  }
+]
