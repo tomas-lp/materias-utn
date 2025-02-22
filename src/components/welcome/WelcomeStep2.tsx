@@ -22,9 +22,9 @@ export default function WelcomeStep2(props: Props) {
     <>
       <motion.div className='h-full' layout style={{ width: '100%' }}>
         {props.variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
+              <span className='font-semibold text-7xl text-app-primary'>
                 2
               </span>
             </CardFooter>
@@ -80,15 +80,15 @@ export default function WelcomeStep2(props: Props) {
               </div>
             </CardContent>
             <CardFooter>
-              <Button onClick={props.onSubmit}>Continuar</Button>
+              <Button variant='neutral' onClick={props.onSubmit}>Continuar</Button>
             </CardFooter>
           </Card>
         )}
 
         {props.variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
+              <span className='font-semibold text-7xl text-app-primary'>
                 2
               </span>
             </CardFooter>

@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-
+import { Link } from 'react-router';
 import { Button } from '../ui/button';
 
 import WelcomeOptionCard from './welcomeOptionCard';
@@ -22,11 +22,9 @@ export default function WelcomeStep3(props: Props) {
     <>
       <motion.div className='h-full' layout style={{ width: '100%' }}>
         {props.variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
-                3
-              </span>
+              <span className='font-semibold text-7xl text-app-primary'>3</span>
             </CardFooter>
           </Card>
         )}
@@ -45,17 +43,22 @@ export default function WelcomeStep3(props: Props) {
               {/* <WelcomeOptionCard /> */}
             </CardContent>
             <CardFooter>
-              <Button onClick={props.onSubmit}>Continuar</Button>
+              <Link to='/'>
+                <Button variant='neutral'>
+                  Continuar
+                </Button>
+                {/* <Button variant='neutral' onClick={props.onSubmit}>
+                  Continuar
+                </Button> */}
+              </Link>
             </CardFooter>
           </Card>
         )}
 
         {props.variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
-                3
-              </span>
+              <span className='font-semibold text-7xl text-app-primary'>3</span>
             </CardFooter>
           </Card>
         )}

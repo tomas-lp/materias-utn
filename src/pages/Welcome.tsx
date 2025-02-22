@@ -7,8 +7,8 @@ export default function Welcome() {
   const [welcomeStep, setWelcomeStep] = useState(1);
 
   return (
-    <div className='w-screen h-screen bg-app-background flex justify-center items-center'>
-      <div className='w-full h-full max-h-[720px] max-w-screen-2xl p-8 flex flex-row justify-center items-center space-x-16'>
+    <div className='w-screen h-screen bg-bg flex justify-center items-center'>
+      <div className='w-full h-full max-h-[720px] max-w-screen-2xl p-8 flex flex-row justify-center items-center space-x-16 text-app-primary'>
         <WelcomeStep1
           variant={
             welcomeStep === 1 ? 'active' : welcomeStep < 1 ? 'before' : 'after'

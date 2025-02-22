@@ -32,9 +32,9 @@ export default function WelcomeStep1(props: Props) {
     <>
       <motion.div className='h-full' layout style={{width: '100%'}}>
         {props.variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
+              <span className='font-semibold text-7xl text-app-primary'>
                 2
               </span>
             </CardFooter>
@@ -59,13 +59,13 @@ export default function WelcomeStep1(props: Props) {
                   ¿Qué carrera cursas?
                 </Label>
                 <Select>
-                  <SelectTrigger id='carrera' className='w-full'>
+                  <SelectTrigger id='carrera' className='w-full bg-bw text-text'>
                     <SelectValue
                       placeholder='Selecciona una'
                       className='select-none'
                     />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='bg-bw text-text'>
                     <SelectGroup>
                       <SelectItem value='isi' className='select-none'>
                         Ingenieria en sistemas de informacion
@@ -82,15 +82,15 @@ export default function WelcomeStep1(props: Props) {
               </div>
             </CardContent>
             <CardFooter>
-              <Button onClick={props.onSubmit}>Continuar</Button>
+              <Button variant='neutral' onClick={props.onSubmit}>Continuar</Button>
             </CardFooter>
           </Card>
         )}
 
         {props.variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-secondary'>
+              <span className='font-semibold text-7xl text-app-primary'>
                 1
               </span>
             </CardFooter>

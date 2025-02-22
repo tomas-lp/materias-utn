@@ -12,7 +12,7 @@ import { Check, Star } from 'lucide-react';
 export default function WelcomeOptionCard() {
   return (
     <>
-      <Card className='w-full p-4'>
+      <Card className='w-full p-4 bg-bw'>
         <CardHeader className='p-0 mb-4'>
           <CardTitle className='font-semibold text-lg'>
             Nombre de la materia
@@ -22,11 +22,11 @@ export default function WelcomeOptionCard() {
           </CardDescription>
         </CardHeader>
         <CardContent className='flex flex-row space-x-4 p-0'>
-          <Button className='w-full'>
+          <Button variant='neutral' className='w-full'>
             <Check />
             Regular
           </Button>
-          <Button className='w-full'>
+          <Button variant='neutral' className='w-full'>
             <Star />
             Aprobada
           </Button>

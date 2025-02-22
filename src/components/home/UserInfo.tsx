@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from '../ui/select';
 import { Label } from '../ui/label';
+import { Badge } from '../ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 
 type Props = {
@@ -25,13 +26,9 @@ type Props = {
 
 export default function UserInfo(props: Props) {
   return (
-    <div className='relative'>
+    <div className='relative w-fit'>
       <div className='flex items-center space-x-2 select-none cursor-pointer mb-2'>
-        <div className='flex justify-center items-center bg-app-border py-1 px-3 rounded-lg leading-none'>
-          <span className='uppercase text-app-secondary font-semibold'>
-            ISI
-          </span>
-        </div>
+        <Badge variant='neutral' className='font-semibold'>ISI</Badge>
         <div className='flex justify-center items-center space-x-1'>
           <span className='text-lg font-semibold'>Tomás</span>
           <ChevronDown className={`mt-[2px] ${props.open && 'rotate-180'}`} />
@@ -46,13 +43,13 @@ export default function UserInfo(props: Props) {
             </CardTitle>
           </CardHeader>
           <CardContent className='space-y-4'>
-            <div className='flex flex-row items-center space-x-4'>
+            <div className='flex flex-col items-start justify-start space-y-2'>
               <Label htmlFor='nombre' className='select-none'>
                 Nombre
               </Label>
               <Input id='nombre' placeholder='David Martinez' />
             </div>
-            <div className='flex flex-row items-center space-x-4'>
+            <div className='flex flex-col items-start justify-start space-y-2'>
               <Label htmlFor='carrera' className='select-none'>
                 Carrera
               </Label>
@@ -89,7 +86,7 @@ export default function UserInfo(props: Props) {
             </div>
           </CardContent>
           <CardFooter>
-            <Button>Guardar cambios</Button>
+            <Button variant='neutral'>Guardar cambios</Button>
           </CardFooter>
         </Card>
       )}
