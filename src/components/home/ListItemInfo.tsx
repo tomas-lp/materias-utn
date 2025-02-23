@@ -6,13 +6,13 @@ type Props = {
   variant: 'bloqueada' | 'desbloqueada' | 'cursando' | 'regular' | 'aprobada';
   materia: {
     name: string;
-    number: number;
+    number: string;
   };
 };
 
 export default function ListItemInfo(props: Props) {
   return (
-    <Card className='flex flex-col rounded-md px-4 py-2 space-y-2 w-64 overflow-hidden whitespace-nowrap bg-app-background'>
+    <Card className='flex flex-col rounded-md px-4 py-2 space-y-2 w-64 overflow-hidden whitespace-nowrap bg-bw text-app-primary'>
       <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
         {props.materia.name}
       </span>

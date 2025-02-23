@@ -12,7 +12,7 @@ import { Check, Star } from 'lucide-react';
 export default function WelcomeOptionCard() {
   return (
     <>
-      <Card className='w-full p-4 bg-bw'>
+      <Card className='w-full p-4 bg-bw text-app-primary'>
         <CardHeader className='p-0 mb-4'>
           <CardTitle className='font-semibold text-lg'>
             Nombre de la materia

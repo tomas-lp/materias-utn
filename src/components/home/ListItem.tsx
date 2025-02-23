@@ -3,7 +3,7 @@ import ListItemInfo from './ListItemInfo';
 import ReactDOMServer from 'react-dom/server';
 
 type Props = {
-  number: number;
+  number: string;
   name: string;
   variant: 'bloqueada' | 'desbloqueada' | 'cursando' | 'regular' | 'aprobada';
 };

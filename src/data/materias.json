@@ -1,290 +1,450 @@
 [
   {
-    "id": 1,
-    "nivel": 1,
+    "id": "1",
+    "nivel": "1",
     "materia": "Análisis Matemático I",
+    "abreviatura": "AM I",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Miercoles", "desde": "14:15", "hasta": "15:00" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Jueves", "desde": "15:50", "hasta": "16:35" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "17:20", "hasta": "18:10" },
+          { "dia": "Viernes", "desde": "18:10", "hasta": "18:55" }
+        ]
+      }
+    ]
   },
   {
-    "id": 2,
-    "nivel": 1,
+    "id": "2",
+    "nivel": "1",
     "materia": "Álgebra y Geometría Analítica",
+    "abreviatura": "AyGA",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Miercoles", "desde": "15:50", "hasta": "16:35" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "16:35", "hasta": "17:20" },
+          { "dia": "Jueves", "desde": "17:20", "hasta": "18:10" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "18:55", "hasta": "19:40" },
+          { "dia": "Viernes", "desde": "13:30", "hasta": "14:15" }
+        ]
+      }
+    ]
   },
   {
-    "id": 3,
-    "nivel": 1,
+    "id": "3",
+    "nivel": "1",
     "materia": "Física I",
+    "abreviatura": "FIS I",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "16:35", "hasta": "17:20" },
+          { "dia": "Jueves", "desde": "13:30", "hasta": "14:15" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "18:10", "hasta": "18:55" },
+          { "dia": "Viernes", "desde": "15:00", "hasta": "15:50" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Viernes", "desde": "16:35", "hasta": "17:20" }
+        ]
+      }
+    ]
   },
   {
-    "id": 4,
-    "nivel": 1,
+    "id": "4",
+    "nivel": "1",
     "materia": "Inglés I",
+    "abreviatura": "ING I",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "17:20", "hasta": "18:10" },
+          { "dia": "Miercoles", "desde": "16:35", "hasta": "17:20" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Jueves", "desde": "18:55", "hasta": "19:40" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Viernes", "desde": "17:20", "hasta": "18:10" }
+        ]
+      }
+    ]
   },
   {
-    "id": 5,
-    "nivel": 1,
+    "id": "5",
+    "nivel": "1",
     "materia": "Lógica y Estructuras Discretas",
+    "abreviatura": "LyED",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 6,
-    "nivel": 1,
+    "id": "6",
+    "nivel": "1",
     "materia": "Algoritmos y Estructuras de Datos",
+    "abreviatura": "AED",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 7,
-    "nivel": 1,
+    "id": "7",
+    "nivel": "1",
     "materia": "Arquitectura de Computadoras",
+    "abreviatura": "ARQ",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 8,
-    "nivel": 1,
+    "id": "8",
+    "nivel": "1",
     "materia": "Sistemas y Procesos de Negocio",
+    "abreviatura": "SYP",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 9,
-    "nivel": 2,
+    "id": "9",
+    "nivel": "2",
     "materia": "Análisis Matemático II",
-    "cursadas": [1, 2],
+    "abreviatura": "AM II",
+    "cursadas": ["1", "2"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 10,
-    "nivel": 2,
+    "id": "10",
+    "nivel": "2",
     "materia": "Física II",
-    "cursadas": [1, 3],
+    "abreviatura": "FIS II",
+    "cursadas": ["1", "3"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 11,
-    "nivel": 2,
+    "id": "11",
+    "nivel": "2",
     "materia": "Ingeniería y Sociedad",
+    "abreviatura": "IyS",
     "cursadas": [],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 12,
-    "nivel": 2,
+    "id": "12",
+    "nivel": "2",
     "materia": "Inglés II",
-    "cursadas": [4],
+    "abreviatura": "ING II",
+    "cursadas": ["4"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 13,
-    "nivel": 2,
+    "id": "13",
+    "nivel": "2",
     "materia": "Sintaxis y Semántica de los Lenguajes",
-    "cursadas": [5, 6],
+    "abreviatura": "SSL",
+    "cursadas": ["5", "6"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 14,
-    "nivel": 2,
+    "id": "14",
+    "nivel": "2",
     "materia": "Paradigmas de Programación",
-    "cursadas": [5, 6],
+    "abreviatura": "PDP",
+    "cursadas": ["5", "6"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 15,
-    "nivel": 2,
+    "id": "15",
+    "nivel": "2",
     "materia": "Sistemas Operativos",
-    "cursadas": [7],
+    "abreviatura": "SO",
+    "cursadas": ["7"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 16,
-    "nivel": 2,
+    "id": "16",
+    "nivel": "2",
     "materia": "Análisis de Sistemas de Información",
-    "cursadas": [6, 8],
+    "abreviatura": "ADS",
+    "cursadas": ["6", "8"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 17,
-    "nivel": 3,
+    "id": "17",
+    "nivel": "3",
     "materia": "Probabilidad y Estadística",
-    "cursadas": [1, 2],
+    "abreviatura": "PyE",
+    "cursadas": ["1", "2"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 18,
-    "nivel": 3,
+    "id": "18",
+    "nivel": "3",
     "materia": "Economía",
+    "abreviatura": "ECO",
     "cursadas": [],
-    "aprobadas": [1, 2],
-    "estado": ""
+    "aprobadas": ["1", "2"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 19,
-    "nivel": 3,
+    "id": "19",
+    "nivel": "3",
     "materia": "Bases de Datos",
-    "cursadas": [13, 14, 15, 16],
-    "aprobadas": [5, 6],
-    "estado": ""
+    "abreviatura": "BDD",
+    "cursadas": ["13", "14", "15", "16"],
+    "aprobadas": ["5", "6"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 20,
-    "nivel": 3,
+    "id": "20",
+    "nivel": "3",
     "materia": "Desarrollo de Software",
-    "cursadas": [14, 15, 16],
-    "aprobadas": [5, 6],
-    "estado": ""
+    "abreviatura": "DES",
+    "cursadas": ["14", "15", "16"],
+    "aprobadas": ["5", "6"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 21,
-    "nivel": 3,
+    "id": "21",
+    "nivel": "3",
     "materia": "Comunicación de Datos",
+    "abreviatura": "COM",
     "cursadas": [],
-    "aprobadas": [3, 4, 5, 6, 7],
-    "estado": ""
+    "aprobadas": ["3", "4", "5", "6", "7"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 22,
-    "nivel": 3,
+    "id": "22",
+    "nivel": "3",
     "materia": "Análisis Numérico",
-    "cursadas": [9],
-    "aprobadas": [1, 2],
-    "estado": ""
+    "abreviatura": "AN",
+    "cursadas": ["9"],
+    "aprobadas": ["1", "2"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 23,
-    "nivel": 3,
+    "id": "23",
+    "nivel": "3",
     "materia": "Diseño de Sistemas de Información",
-    "cursadas": [14, 15, 16],
-    "aprobadas": [4, 6, 8],
-    "estado": ""
+    "abreviatura": "DDS",
+    "cursadas": ["14", "15", "16"],
+    "aprobadas": ["4", "6", "8"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 24,
-    "nivel": 3,
+    "id": "24",
+    "nivel": "3",
     "materia": "Legislación",
-    "cursadas": [11],
+    "abreviatura": "LEG",
+    "cursadas": ["11"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 25,
-    "nivel": 4,
+    "id": "25",
+    "nivel": "4",
     "materia": "Ingeniería y Calidad de Software",
-    "cursadas": [19, 20, 21, 22, 23],
-    "aprobadas": [13, 14],
-    "estado": ""
+    "abreviatura": "IyCS",
+    "cursadas": ["19", "20", "21", "22", "23"],
+    "aprobadas": ["13", "14"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 26,
-    "nivel": 4,
+    "id": "26",
+    "nivel": "4",
     "materia": "Redes de Datos",
-    "cursadas": [15, 16, 17, 18, 19, 20, 21],
+    "abreviatura": "RED",
+    "cursadas": ["15", "16", "17", "18", "19", "20", "21"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 27,
-    "nivel": 4,
+    "id": "27",
+    "nivel": "4",
     "materia": "Investigación Operativa",
-    "cursadas": [17, 18, 19, 20, 21, 22],
+    "abreviatura": "IO",
+    "cursadas": ["17", "18", "19", "20", "21", "22"],
     "aprobadas": [],
-    "estado": ""
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 28,
-    "nivel": 4,
+    "id": "28",
+    "nivel": "4",
     "materia": "Simulación",
-    "cursadas": [17],
-    "aprobadas": [9],
-    "estado": ""
+    "abreviatura": "SIM",
+    "cursadas": ["17"],
+    "aprobadas": ["9"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 29,
-    "nivel": 4,
+    "id": "29",
+    "nivel": "4",
     "materia": "Tecnologías para la automatización",
-    "cursadas": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-    "aprobadas": [9],
-    "estado": ""
+    "abreviatura": "TPA",
+    "cursadas": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"],
+    "aprobadas": ["9"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 30,
-    "nivel": 4,
+    "id": "30",
+    "nivel": "4",
     "materia": "Administración de Sistemas de Información",
-    "cursadas": [18, 19, 20, 21, 22, 23],
-    "aprobadas": [16],
-    "estado": ""
+    "abreviatura": "ADM",
+    "cursadas": ["18", "19", "20", "21", "22", "23"],
+    "aprobadas": ["16"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 31,
-    "nivel": 5,
+    "id": "31",
+    "nivel": "5",
     "materia": "Inteligencia Artificial",
-    "cursadas": [28],
-    "aprobadas": [17, 18, 19, 20, 21, 22],
-    "estado": ""
+    "abreviatura": "IA",
+    "cursadas": ["28"],
+    "aprobadas": ["17", "18", "19", "20", "21", "22"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 32,
-    "nivel": 5,
+    "id": "32",
+    "nivel": "5",
     "materia": "Ciencia de Datos",
-    "cursadas": [28],
-    "aprobadas": [17, 18, 19],
-    "estado": ""
+    "abreviatura": "CDD",
+    "cursadas": ["28"],
+    "aprobadas": ["17", "18", "19"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 33,
-    "nivel": 5,
+    "id": "33",
+    "nivel": "5",
     "materia": "Sistemas de Gestión",
-    "cursadas": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
-    "aprobadas": [23],
-    "estado": ""
+    "abreviatura": "SDG",
+    "cursadas": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27"],
+    "aprobadas": ["23"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 34,
-    "nivel": 5,
+    "id": "34",
+    "nivel": "5",
     "materia": "Gestión Gerencial",
-    "cursadas": [24, 25, 26, 27, 28, 29, 30],
-    "aprobadas": [18],
-    "estado": ""
+    "abreviatura": "GG",
+    "cursadas": ["24", "25", "26", "27", "28", "29", "30"],
+    "aprobadas": ["18"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 35,
-    "nivel": 5,
+    "id": "35",
+    "nivel": "5",
     "materia": "Seguridad en los Sistemas de Información",
-    "cursadas": [26, 27, 28, 29, 30],
-    "aprobadas": [20, 21],
-    "estado": ""
+    "abreviatura": "SSI",
+    "cursadas": ["26", "27", "28", "29", "30"],
+    "aprobadas": ["20", "21"],
+    "estado": "",
+    "comisiones": []
   },
   {
-    "id": 36,
-    "nivel": 5,
+    "id": "36",
+    "nivel": "5",
     "materia": "Proyecto Final",
-    "cursadas": [25, 26, 27, 28, 29, 30],
-    "aprobadas": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-    "estado": ""
+    "abreviatura": "PROY",
+    "cursadas": ["25", "26", "27", "28", "29", "30"],
+    "aprobadas": ["12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+    "estado": "",
+    "comisiones": []
   }
 ]
