@@ -107,11 +107,11 @@
     repeating-linear-gradient(
       to right,
       transparent 0 calc(100%/7 - 1px),
-      rgba(0, 0, 0, 0.212) calc(100%/7 - 1px) calc(100%/7)
+      var(--border-color) calc(100%/7 - 1px) calc(100%/7)
     ),
     repeating-linear-gradient(
       to bottom,
       transparent 0 calc(100%/10 - 1px),
-      rgba(0, 0, 0, 0.212) calc(100%/10 - 1px) calc(100%/10)
+      var(--border-color) calc(100%/10 - 1px) calc(100%/10)
     );
 }
