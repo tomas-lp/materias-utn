@@ -69,7 +69,7 @@ export default function WelcomeStep2(props: Props) {
                       variant='default'
                       number={materia.nivel}
                       name={materia.materia}
-                      onClick={() => seleccionarMateria(materia)}
+                      onAdd={() => seleccionarMateria(materia)}
                     />
                   )}
                 </div>
