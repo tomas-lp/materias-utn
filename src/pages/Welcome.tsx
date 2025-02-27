@@ -1,14 +1,14 @@
 import WelcomeStep1 from '@/components/welcome/WelcomeStep1';
 import WelcomeStep2 from '@/components/welcome/WelcomeStep2';
 import WelcomeStep3 from '@/components/welcome/WelcomeStep3';
+import { MateriaCursando } from '@/types/data';
 import { useState } from 'react';
-import { Materia } from '@/types/data';
 
 export default function Welcome() {
   const [welcomeStep, setWelcomeStep] = useState(1);
   const [nombre, setNombre] = useState('');
   const [carrera, setCarrera] = useState('');
-  const [materiasSeleccionadas, setMateriasSeleccionadas] = useState<Materia[]>([]);
+  const [materiasSeleccionadas, setMateriasSeleccionadas] = useState<MateriaCursando[]>([]);
 
   return (
     <div className='w-screen h-screen bg-bg flex justify-center items-center'>

@@ -19,3 +19,8 @@ export type Materia = {
     estado: string;
     comisiones: Comision[];
 };
+
+export type MateriaCursando = {
+    materia: Materia;
+    comision: Comision;
+}

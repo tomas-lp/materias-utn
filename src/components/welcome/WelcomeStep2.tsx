@@ -13,26 +13,38 @@ import WelcomeListItem from './WelcomeListItem';
 import { motion } from 'motion/react';
 import materias from '@/data/materias.json';
 import { useEffect, useState } from 'react';
-import { Materia } from '@/types/data';
+import { Materia, MateriaCursando, Comision } from '@/types/data';
 
 type Props = {
-  materiasSeleccionadas: Materia[];
-  setMateriasSeleccionadas: (materias: Materia[]) => void;
+  materiasSeleccionadas: MateriaCursando[];
+  setMateriasSeleccionadas: (materias: MateriaCursando[]) => void;
   variant: 'before' | 'active' | 'after';
   onSubmit: () => void;
 };
 
 export default function WelcomeStep2(props: Props) {
   const [busqueda, setBusqueda] = useState('');
-  const [materiasFiltradas, setMateriasFiltradas] = useState<Materia[]>(materias);
+  const [materiasFiltradas, setMateriasFiltradas] =
+    useState<Materia[]>(materias);
 
-  function seleccionarMateria(materia: Materia) {
-    props.setMateriasSeleccionadas([...props.materiasSeleccionadas, materia]);
+  function seleccionarMateria({ materia, comision }: MateriaCursando) {
+    const nuevaMateria = { materia: materia, comision: comision };
+    const nuevasMaterias = [...props.materiasSeleccionadas, nuevaMateria];
+    props.setMateriasSeleccionadas(nuevasMaterias);
   }
 
   useEffect(() => {
-    let filtradas = materias.filter((materia) => materia.materia.toLowerCase().includes(busqueda.toLowerCase()));
-    filtradas = filtradas.filter((materia) => !props.materiasSeleccionadas.includes(materia));
+    let filtradas = materias.filter((materia) =>
+      materia.materia.toLowerCase().includes(busqueda.toLowerCase())
+    );
+
+    const arrMateriasSeleccionadas = props.materiasSeleccionadas.map(
+      (m) => m.materia
+    );
+
+    filtradas = filtradas.filter(
+      (materia) => !arrMateriasSeleccionadas.includes(materia)
+    );
     setMateriasFiltradas(filtradas);
   }, [busqueda, props.materiasSeleccionadas]);
 
@@ -42,9 +54,7 @@ export default function WelcomeStep2(props: Props) {
         {props.variant === 'before' && (
           <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-primary'>
-                2
-              </span>
+              <span className='font-semibold text-7xl text-app-primary'>2</span>
             </CardFooter>
           </Card>
         )}
@@ -60,35 +70,39 @@ export default function WelcomeStep2(props: Props) {
               </CardDescription>
             </CardHeader>
             <CardContent className='flex flex-col space-y-4 flex-grow overflow-hidden py-1'>
-              <SearchInput placeholder='Ingresa un nombre...' value={busqueda} onChange={(e) => setBusqueda(e.target.value)} />
+              <SearchInput
+                placeholder='Ingresa un nombre...'
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+              />
               <div className='flex flex-row space-x-4 overflow-auto'>
                 <div className='flex flex-col space-y-2 w-full overflow-auto'>
-                  {materiasFiltradas.map((materia) =>
+                  {materiasFiltradas.map((materia) => (
                     <WelcomeListItem
                       key={materia.id}
                       variant='default'
-                      number={materia.nivel}
-                      name={materia.materia}
-                      onAdd={() => seleccionarMateria(materia)}
+                      materia={materia}
+                      handleAdd={(comision: Comision) => seleccionarMateria({materia: materia, comision: comision})}
                     />
-                  )}
+                  ))}
                 </div>
                 <div className='flex flex-col space-y-4 w-full'>
                   <div className='flex flex-col space-y-2'>
-                    {props.materiasSeleccionadas.map((materia) =>
+                    {props.materiasSeleccionadas.map((materia) => (
                       <WelcomeListItem
-                        key={materia.id}
+                        key={materia.materia.id}
                         variant='selected'
-                        number={materia.nivel}
-                        name={materia.materia}
+                        materia={materia.materia}
                       />
-                    )}
+                    ))}
                   </div>
                 </div>
               </div>
             </CardContent>
             <CardFooter>
-              <Button variant='neutral' onClick={props.onSubmit}>Continuar</Button>
+              <Button variant='neutral' onClick={props.onSubmit}>
+                Continuar
+              </Button>
             </CardFooter>
           </Card>
         )}
@@ -96,9 +110,7 @@ export default function WelcomeStep2(props: Props) {
         {props.variant === 'after' && (
           <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
-              <span className='font-semibold text-7xl text-app-primary'>
-                2
-              </span>
+              <span className='font-semibold text-7xl text-app-primary'>2</span>
             </CardFooter>
           </Card>
         )}
