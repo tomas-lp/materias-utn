@@ -8,16 +8,12 @@ type UserData = {
     id: string;
     comision: string;
   }[];
-  regulares: {
-    id: string;
-  }[];
-  aprobadas: {
-    id: string;
-  }[];
+  regulares: string[];
+  aprobadas: string[];
 };
 
 export function useUserData() {
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [userData, setUserData] = useState<UserData | null>();
 
   useEffect(() => {
     const rawData = localStorage.getItem('userData');
@@ -69,7 +65,7 @@ export function useUserData() {
 
     setUserData({
       ...userData,
-      regulares: [...userData.regulares, { id }],
+      regulares: [...userData.regulares, id],
     });
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -82,7 +78,7 @@ export function useUserData() {
 
     setUserData({
       ...userData,
-      regulares: userData.regulares.filter((materia) => materia.id !== id),
+      regulares: userData.regulares.filter((idMateria) => idMateria !== id),
     });
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -95,7 +91,7 @@ export function useUserData() {
 
     setUserData({
       ...userData,
-      aprobadas: [...userData.aprobadas, { id }],
+      aprobadas: [...userData.aprobadas, id ],
     });
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -108,7 +104,7 @@ export function useUserData() {
 
     setUserData({
       ...userData,
-      aprobadas: userData.aprobadas.filter((materia) => materia.id !== id),
+      aprobadas: userData.aprobadas.filter((idMateria) => idMateria !== id),
     });
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -128,12 +124,9 @@ export function useUserData() {
     const requiereRegular = materia.cursadas || [];
     const requiereAprobada = materia.aprobadas || [];
 
-    const regulares = userData.regulares.map((materia) => materia.id);
-    const aprobadas = userData.aprobadas.map((materia) => materia.id);
-
     return (
-      requiereRegular.every((id) => regulares.includes(id) || aprobadas.includes(id)) &&
-      requiereAprobada.every((id) => aprobadas.includes(id))
+      requiereRegular.every((id) => userData.regulares.includes(id) || userData.aprobadas.includes(id)) &&
+      requiereAprobada.every((id) => userData.aprobadas.includes(id))
     );
   }
 

@@ -14,12 +14,12 @@ export default function WelcomeListItemInfo(props: Props) {
       <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
         {props.materia.materia}
       </span>
-      {props.materia.comisiones.map((comision) => (
-        <>
+      {props.materia.comisiones.map((comision, i) => (
+        <div key={i}>
           <div className='flex flex-col'>
             <span className='font-bold text-sm'>{comision.nombre}</span>
-            {comision.horario.map((diaHorario)=> 
-              <span className='font-base text-sm'>
+            {comision.horario.map((diaHorario, j)=> 
+              <span className='font-base text-sm' key={j}>
                 {diaHorario.dia}: {diaHorario.desde} - {diaHorario.hasta}
               </span>
             )}
@@ -32,7 +32,7 @@ export default function WelcomeListItemInfo(props: Props) {
             <Plus className='w-4' />
             Agregar {comision.nombre}
           </Button>
-        </>
+        </div>
       ))}
     </Card>
   );

@@ -175,7 +175,29 @@
     "cursadas": ["1", "2"],
     "aprobadas": [],
     "estado": "",
-    "comisiones": []
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Miercoles", "desde": "14:15", "hasta": "15:00" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Jueves", "desde": "15:50", "hasta": "16:35" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "17:20", "hasta": "18:10" },
+          { "dia": "Viernes", "desde": "18:10", "hasta": "18:55" }
+        ]
+      }
+    ]
   },
   {
     "id": "10",
@@ -275,7 +297,29 @@
     "cursadas": ["13", "14", "15", "16"],
     "aprobadas": ["5", "6"],
     "estado": "",
-    "comisiones": []
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Miercoles", "desde": "14:15", "hasta": "15:00" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Jueves", "desde": "15:50", "hasta": "16:35" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "17:20", "hasta": "18:10" },
+          { "dia": "Viernes", "desde": "18:10", "hasta": "18:55" }
+        ]
+      }
+    ]
   },
   {
     "id": "20",
@@ -372,10 +416,46 @@
     "nivel": "4",
     "materia": "Tecnologías para la automatización",
     "abreviatura": "TPA",
-    "cursadas": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"],
+    "cursadas": [
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22"
+    ],
     "aprobadas": ["9"],
     "estado": "",
-    "comisiones": []
+    "comisiones": [
+      {
+        "nombre": "K1.1",
+        "horario": [
+          { "dia": "Lunes", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Miercoles", "desde": "14:15", "hasta": "15:00" }
+        ]
+      },
+      {
+        "nombre": "K1.2",
+        "horario": [
+          { "dia": "Martes", "desde": "15:00", "hasta": "15:50" },
+          { "dia": "Jueves", "desde": "15:50", "hasta": "16:35" }
+        ]
+      },
+      {
+        "nombre": "K1.3",
+        "horario": [
+          { "dia": "Miercoles", "desde": "17:20", "hasta": "18:10" },
+          { "dia": "Viernes", "desde": "18:10", "hasta": "18:55" }
+        ]
+      }
+    ]
   },
   {
     "id": "30",
@@ -443,7 +523,20 @@
     "materia": "Proyecto Final",
     "abreviatura": "PROY",
     "cursadas": ["25", "26", "27", "28", "29", "30"],
-    "aprobadas": ["12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+    "aprobadas": [
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23"
+    ],
     "estado": "",
     "comisiones": []
   }
