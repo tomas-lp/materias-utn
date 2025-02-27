@@ -88,11 +88,11 @@ export default function WelcomeStep1(props: Props) {
                       <SelectItem value='isi' className='select-none'>
                         Ingenieria en sistemas de informacion
                       </SelectItem>
-                      <SelectItem value='iq' className='select-none'>
-                        Ingenieria quimica
+                      <SelectItem value='iq' disabled className='select-none'>
+                        Ingenieria quimica (próximamente)
                       </SelectItem>
-                      <SelectItem value='iem' className='select-none'>
-                        Ingenieria electromecanica
+                      <SelectItem value='iem' disabled className='select-none'>
+                        Ingenieria electromecanica (próximamente)
                       </SelectItem>
                     </SelectGroup>
                   </SelectContent>
