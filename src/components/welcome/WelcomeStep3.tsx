@@ -11,8 +11,9 @@ import WelcomeOptionCard from './welcomeOptionCard';
 import { motion } from 'motion/react';
 import { Materia, MateriaCursando } from '@/types/data';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { calcularPrerrequisitos } from '@/utils/data';
-import materias from '../../data/materias.json';
+// import { calcularPrerrequisitos } from '@/utils/data';
+// import materias from '../../data/materias.json';
+import { useMaterias } from '@/hooks/useMaterias';
 
 type Props = {
   variant: 'before' | 'active' | 'after';
@@ -23,6 +24,7 @@ type Props = {
 };
 
 export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, setMateriasCursadas, setMateriasAprobadas} : Props) {
+  const { listaMaterias, calcularPrerrequisitos } = useMaterias();
   const [materiasDudosas, setMateriasDudosas] = useState<Materia[]>([]);
   const [chequeadas, setChequeadas] = useState(0);
 
@@ -31,13 +33,13 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
     const { materiasDebeCursar, materiasDebeAprobar } =
       calcularPrerrequisitos(idsCursando);
 
-    const dudosas: Materia[] = materias.filter((materia) =>
+    const dudosas: Materia[] = listaMaterias.filter((materia) =>
       materiasDebeCursar.includes(materia.id)
     );
     setMateriasDudosas(dudosas);
 
     setMateriasAprobadas((m) => [...m, ...materiasDebeAprobar]);
-  }, [materiasSeleccionadas, setMateriasAprobadas, setMateriasCursadas]);
+  }, [materiasSeleccionadas, setMateriasAprobadas, setMateriasCursadas, calcularPrerrequisitos, listaMaterias]);
 
   function agregarCursada(idMateria: string) {
     setChequeadas(c => c+1);

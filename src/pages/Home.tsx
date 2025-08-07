@@ -25,7 +25,7 @@ export default function Home() {
   }, [userData, navigate]);
 
   return (
-    <div className='w-screen h-screen bg-bg flex justify-center items-center'>
+    <div className='w-screen h-screen bg-bg flex justify-center items-center overflow-hidden'>
       {userData && (
         <div className='w-full p-8 max-w-screen-2xl h-full grid grid-cols-2 gap-4 text-app-primary'>
           <div className='border-r-2 border-app-primary flex flex-col space-y-16'>
@@ -43,7 +43,9 @@ export default function Home() {
                       | 'regular'
                       | 'aprobada' = 'bloqueada';
 
-                    if (puedeCursar(materia.id)) {
+                    const puede = puedeCursar(materia.id);
+
+                    if (puede.puede) {
                       variant = 'desbloqueada';
                     }
 
@@ -61,10 +63,10 @@ export default function Home() {
 
                     return (
                       <ListItem
-                        name={materia.materia}
-                        number={materia.nivel}
+                        materia={materia}
                         variant={variant}
                         key={materia.id}
+                        puedeCursar={puede}
                       />
                     );
                   })}

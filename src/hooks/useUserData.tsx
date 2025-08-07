@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import materias from '../data/materias.json';
+// import materias from '../data/materias.json';
+import { useMaterias } from './useMaterias';
 
 type UserData = {
   nombre: string;
@@ -13,6 +14,7 @@ type UserData = {
 };
 
 export function useUserData() {
+  const { getMateriaById, getComisionByName } = useMaterias();
   const [userData, setUserData] = useState<UserData | null>();
 
   useEffect(() => {
@@ -63,6 +65,8 @@ export function useUserData() {
       return console.log('Error: No hay datos de usuario');
     }
 
+    removeCursando(id);
+
     setUserData({
       ...userData,
       regulares: [...userData.regulares, id],
@@ -89,9 +93,12 @@ export function useUserData() {
       return console.log('Error: No hay datos de usuario');
     }
 
+    removeCursando(id);
+    removeAprobada(id);
+
     setUserData({
       ...userData,
-      aprobadas: [...userData.aprobadas, id ],
+      aprobadas: [...userData.aprobadas, id],
     });
 
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -111,27 +118,38 @@ export function useUserData() {
   }
 
   function puedeCursar(idMateria: string) {
-    const materia = materias.find((materia) => materia.id === idMateria);
+    const materia = getMateriaById(idMateria);
 
     if (!userData) {
-      return console.log('Error: No hay datos de usuario');
+      console.log('Error: No hay datos de usuario');
+      return {}
     }
 
     if (!materia) {
-      return console.log('Error: Materia no encontrada');
+      console.log('Error: Materia no encontrada');
+      return {}
     }
 
     const requiereRegular = materia.cursadas || [];
     const requiereAprobada = materia.aprobadas || [];
 
-    return (
-      requiereRegular.every((id) => userData.regulares.includes(id) || userData.aprobadas.includes(id)) &&
-      requiereAprobada.every((id) => userData.aprobadas.includes(id))
+    const noCumpleRegular = requiereRegular.filter(
+      (id) =>
+        !userData.regulares.includes(id) && !userData.aprobadas.includes(id)
     );
+    const noCumpleAprobada = requiereAprobada.filter(
+      (id) => !userData.aprobadas.includes(id)
+    );
+
+    return {
+      puede: noCumpleRegular.length === 0 && noCumpleAprobada.length === 0,
+      noCumpleRegular,
+      noCumpleAprobada,
+    };
   }
 
   function horarioLibre(idMateria: string, comision: string) {
-    const materia = materias.find((materia) => materia.id === idMateria);
+    const materia = getMateriaById(idMateria);
 
     if (!userData) {
       return console.log('Error: No hay datos de usuario');
@@ -151,13 +169,7 @@ export function useUserData() {
 
     const horariosCursando = userData.cursando
       .map((materia) => {
-        const foundMateria = materias.find((m) => m.id === materia.id);
-        if (!foundMateria) {
-          return;
-        }
-        const foundComision = foundMateria.comisiones.find(
-          (c) => c.nombre === materia.comision
-        );
+        const foundComision = getComisionByName(materia.id, materia.comision)
 
         if (!foundComision) {
           return;

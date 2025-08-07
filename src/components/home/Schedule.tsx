@@ -109,7 +109,7 @@ const Schedule = () => {
           return (
             <div
               key={`${classItem.name}-${classItem.day}`}
-              className='p-2'
+              className='p-1'
               style={{
                 gridColumn: column,
                 gridRow: `${startRow} / ${endRow}`,
