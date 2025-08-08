@@ -31,8 +31,8 @@ export default function ListItem(props: Props) {
       data-tooltip-offset={24}
       data-tooltip-position-strategy='absolute'
     >
-      <div className='flex gap-4 items-center'>
-        <span className='flex justify-center items-center select-none text-center bg-app-primary text-app-background m-0 rounded-full w-4 h-4 font-bold text-[10px]'>
+      <div className='flex gap-4 items-center overflow-hidden'>
+        <span className='flex justify-center items-center select-none text-center bg-app-primary text-app-background m-0 rounded-full min-w-4 w-4 h-4 font-bold text-[10px]'>
           {props.materia.nivel}
         </span>
         <span className='select-none max-w-44 overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
@@ -41,23 +41,23 @@ export default function ListItem(props: Props) {
       </div>
 
       {props.variant === 'bloqueada' && (
-        <div className={`w-4 h-4 rounded-full bg-app-danger`}></div>
+        <div className={`w-4 min-w-4 h-4 rounded-full bg-app-danger`}></div>
       )}
 
       {props.variant === 'desbloqueada' && (
-        <div className={`w-4 h-4 rounded-full bg-app-success`}></div>
+        <div className={`w-4 min-w-4 h-4 rounded-full bg-app-success`}></div>
       )}
 
       {props.variant === 'cursando' && (
-        <div className={`w-4 h-4 rounded-full bg-app-blue`}></div>
+        <div className={`w-4 min-w-4 h-4 rounded-full bg-app-blue`}></div>
       )}
 
       {props.variant === 'regular' && (
-        <div className={`w-4 h-4 rounded-full bg-app-warning`}></div>
+        <div className={`w-4 min-w-4 h-4 rounded-full bg-app-warning`}></div>
       )}
 
       {props.variant === 'aprobada' && (
-        <div className={`w-4 h-4 rounded-full bg-app-primary`}></div>
+        <div className={`w-4 min-w-4 h-4 rounded-full bg-app-primary`}></div>
       )}
 
       <Tooltip

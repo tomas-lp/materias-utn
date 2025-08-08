@@ -58,10 +58,10 @@ const Schedule = () => {
   };
 
   return (
-    <Card className='w-fit h-fit p-4 flex justify-center items-center bg-bw select-none shadow-none'>
+    <Card className='w-full h-fit p-4 flex justify-center items-center bg-app-background select-none shadow-none overflow-hidden'>
       <div
         id='schedule'
-        className='grid'
+        className='w-full grid overflow-hidden xl:aspect-[5/4]'
         style={{
           gridTemplateColumns: 'repeat(7, 1fr)',
           gridTemplateRows: 'repeat(10, 1fr)',
@@ -74,9 +74,9 @@ const Schedule = () => {
         {days.map((day) => (
           <div
             key={day}
-            className='h-fit px-2 flex items-center justify-center font-semibold my-auto mx-auto text-app-primary'
+            className='px-2 flex items-center justify-center font-semibold my-auto mx-auto text-app-primary overflow-hidden'
           >
-            {day}
+            {day.substring(0, 3)}
           </div>
         ))}
 
@@ -84,7 +84,7 @@ const Schedule = () => {
         {times.map((time, i) => (
           <div
             key={time}
-            className='h-fit flex items-start justify-center text-sm font-bold text-app-primary'
+            className='flex items-start justify-center text-sm font-bold text-app-primary overflow-hidden'
             style={{
               gridColumn: 1,
               gridRow: i + 2,
@@ -104,7 +104,7 @@ const Schedule = () => {
           return (
             <div
               key={`${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
-              className='p-1'
+              className='p-1 overflow-hidden'
               style={{
                 gridColumn: column,
                 gridRow: `${startRow} / ${endRow}`,
