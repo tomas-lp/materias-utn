@@ -47,10 +47,10 @@ export default function WelcomeStep1(props: Props) {
     <>
       <motion.div className='h-full' layout style={{width: '100%'}}>
         {props.variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>
-                2
+                1
               </span>
             </CardFooter>
           </Card>
@@ -77,22 +77,22 @@ export default function WelcomeStep1(props: Props) {
                   value={props.carrera}
                   onValueChange={(value) => props.setCarrera(value)}
                 >
-                  <SelectTrigger id='carrera' className={`w-full bg-bw text-text ${dataError && props.carrera === '' && 'border-red-400'}`}>
+                  <SelectTrigger id='carrera' className={`w-full text-text ${dataError && props.carrera === '' && 'border-red-400'}`}>
                     <SelectValue
                       placeholder='Selecciona una'
                       className='select-none'
                     />
                   </SelectTrigger>
-                  <SelectContent className='bg-bw text-text'>
+                  <SelectContent className='text-text'>
                     <SelectGroup>
                       <SelectItem value='isi' className='select-none'>
-                        Ingenieria en sistemas de informacion
+                        Ingenieria en Sistemas de Información
                       </SelectItem>
                       <SelectItem value='iq' disabled className='select-none'>
-                        Ingenieria quimica (próximamente)
+                        Ingenieria Química (próximamente)
                       </SelectItem>
                       <SelectItem value='iem' disabled className='select-none'>
-                        Ingenieria electromecanica (próximamente)
+                        Ingenieria Electromecánica (próximamente)
                       </SelectItem>
                     </SelectGroup>
                   </SelectContent>
@@ -106,7 +106,7 @@ export default function WelcomeStep1(props: Props) {
         )}
 
         {props.variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>
                 1

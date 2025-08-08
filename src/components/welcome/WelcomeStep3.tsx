@@ -57,7 +57,7 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
     <>
       <motion.div className='h-full' layout style={{ width: '100%' }}>
         {variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>3</span>
             </CardFooter>
@@ -91,7 +91,7 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
         )}
 
         {variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>3</span>
             </CardFooter>

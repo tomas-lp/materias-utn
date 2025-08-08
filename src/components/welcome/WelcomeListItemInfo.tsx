@@ -10,8 +10,8 @@ type Props = {
 
 export default function WelcomeListItemInfo(props: Props) {
   return (
-    <Card className='flex flex-col rounded-md px-4 py-2 space-y-2 w-64 overflow-hidden whitespace-nowrap bg-bw text-app-primary'>
-      <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
+    <Card className='flex flex-col rounded-md p-4 gap-4 w-64 overflow-hidden whitespace-nowrap text-app-primary'>
+      <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis m-0'>
         {props.materia.materia}
       </span>
       {props.materia.comisiones.map((comision, i) => (

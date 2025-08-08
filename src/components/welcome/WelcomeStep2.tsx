@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card';
 
 import { Button } from '@/components/ui/button';
-import { Input } from '../ui/input';
+import { SearchInput } from '../ui/input';
 import WelcomeListItem from './WelcomeListItem';
 import { motion } from 'motion/react';
 import materias from '@/data/materias.json';
@@ -52,7 +52,7 @@ export default function WelcomeStep2(props: Props) {
     <>
       <motion.div className='h-full' layout style={{ width: '100%' }}>
         {props.variant === 'before' && (
-          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
+          <Card className='w-full h-full flex flex-col justify-end'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>2</span>
             </CardFooter>
@@ -70,7 +70,7 @@ export default function WelcomeStep2(props: Props) {
               </CardDescription>
             </CardHeader>
             <CardContent className='flex flex-col space-y-4 flex-grow overflow-hidden py-1'>
-              <Input
+              <SearchInput
                 placeholder='Ingresa un nombre...'
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
@@ -87,7 +87,7 @@ export default function WelcomeStep2(props: Props) {
                   ))}
                 </div>
                 <div className='flex flex-col space-y-4 w-full'>
-                  <div className='flex flex-col space-y-2'>
+                  <motion.div layout className='flex flex-col space-y-2'>
                     {props.materiasSeleccionadas.map((materia) => (
                       <WelcomeListItem
                         key={materia.materia.id}
@@ -95,7 +95,7 @@ export default function WelcomeStep2(props: Props) {
                         materia={materia.materia}
                       />
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </CardContent>
@@ -108,7 +108,7 @@ export default function WelcomeStep2(props: Props) {
         )}
 
         {props.variant === 'after' && (
-          <Card className='w-full h-full flex flex-col justify-end'>
+          <Card className='w-full h-full flex flex-col justify-end bg-app-border'>
             <CardFooter>
               <span className='font-semibold text-7xl text-app-primary'>2</span>
             </CardFooter>

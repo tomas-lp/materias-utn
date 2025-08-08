@@ -36,7 +36,7 @@ export default function WelcomeOptionCard(props: Props) {
   return (
     <>
       {estado === 'defecto' && (
-        <Card className='w-full p-4 bg-bw text-app-primary'>
+        <Card className='w-full p-4 bg-app-background text-app-primary'>
           <CardHeader className='p-0 mb-4'>
             <CardTitle className='font-semibold text-lg'>
               {props.materia.materia}
