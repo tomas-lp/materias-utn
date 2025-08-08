@@ -100,7 +100,7 @@ export default function WelcomeStep1(props: Props) {
               </div>
             </CardContent>
             <CardFooter>
-              <Button variant='neutral' onClick={handleSubmit}>Continuar</Button>
+              <Button variant='default' onClick={handleSubmit}>Continuar</Button>
             </CardFooter>
           </Card>
         )}

@@ -8,7 +8,7 @@ import {
 
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
-import { Materia } from '@/types/data';
+import type { Materia } from '@/types/data';
 import { nombreNivel } from '@/utils/misc';
 import { useState } from 'react';
 
@@ -47,16 +47,16 @@ export default function WelcomeOptionCard(props: Props) {
           </CardHeader>
           <CardContent className='flex flex-row space-x-4 p-0'>
             <Button
-              variant='neutral'
-              className='w-full hover:bg-app-cyan'
+              variant='default'
+              className='flex-1 hover:bg-app-cyan hover:text-app-primary cursor-pointer'
               onClick={handleClickRegular}
             >
               <Check />
               Regular
             </Button>
             <Button
-              variant='neutral'
-              className='w-full hover:bg-app-yellow'
+              variant='default'
+              className='flex-1 hover:bg-app-yellow hover:text-app-primary cursor-pointer'
               onClick={handleClickAprobada}
             >
               <Star />
@@ -77,7 +77,7 @@ export default function WelcomeOptionCard(props: Props) {
             </CardDescription>
           </CardHeader>
           <CardContent className='flex flex-row space-x-4 p-0'>
-            <Button variant='noShadow' className='w-full bg-app-cyan cursor-default'>
+            <Button variant='ghost' className='w-full bg-app-cyan hover:bg-app-cyan cursor-default'>
               <Check />
               Regular
             </Button>
@@ -96,7 +96,7 @@ export default function WelcomeOptionCard(props: Props) {
             </CardDescription>
           </CardHeader>
           <CardContent className='flex flex-row space-x-4 p-0'>
-            <Button variant='noShadow' className='w-full bg-app-yellow cursor-default'>
+            <Button variant='ghost' className='w-full bg-app-yellow hover:bg-app-yellow cursor-default'>
               <Star />
               Aprobada
             </Button>

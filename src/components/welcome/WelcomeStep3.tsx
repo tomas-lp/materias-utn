@@ -9,8 +9,9 @@ import {
 import { Button } from '../ui/button';
 import WelcomeOptionCard from './welcomeOptionCard';
 import { motion } from 'motion/react';
-import { Materia, MateriaCursando } from '@/types/data';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import type { Materia, MateriaCursando } from '@/types/data';
+// import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useState } from 'react';
 // import { calcularPrerrequisitos } from '@/utils/data';
 // import materias from '../../data/materias.json';
 import { useMaterias } from '@/hooks/useMaterias';
@@ -19,15 +20,15 @@ type Props = {
   variant: 'before' | 'active' | 'after';
   onSubmit: () => void;
   materiasSeleccionadas: MateriaCursando[];
-  setMateriasCursadas: Dispatch<SetStateAction<string[]>>;
-  setMateriasAprobadas: Dispatch<SetStateAction<string[]>>;
+  addMateriasCursadas: (materias: string[]) => void;
+  addMateriasAprobadas: (materias: string[]) => void;
 };
 
-export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, setMateriasCursadas, setMateriasAprobadas} : Props) {
+export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, addMateriasCursadas, addMateriasAprobadas} : Props) {
   const { listaMaterias, calcularPrerrequisitos } = useMaterias();
   const [materiasDudosas, setMateriasDudosas] = useState<Materia[]>([]);
   const [chequeadas, setChequeadas] = useState(0);
-
+  
   useEffect(() => {
     const idsCursando = materiasSeleccionadas.map((m) => m.materia.id);
     const { materiasDebeCursar, materiasDebeAprobar } =
@@ -38,17 +39,18 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
     );
     setMateriasDudosas(dudosas);
 
-    setMateriasAprobadas((m) => [...m, ...materiasDebeAprobar]);
-  }, [materiasSeleccionadas, setMateriasAprobadas, setMateriasCursadas, calcularPrerrequisitos, listaMaterias]);
+    addMateriasAprobadas(materiasDebeAprobar);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [materiasSeleccionadas]);
 
   function agregarCursada(idMateria: string) {
     setChequeadas(c => c+1);
-    setMateriasCursadas((m) => [...m, idMateria]);
+    addMateriasCursadas([idMateria]);
   }
 
   function agregarAprobada(idMateria: string) {
     setChequeadas(c => c+1);
-    setMateriasAprobadas((m) => [...m, idMateria]);
+    addMateriasAprobadas([idMateria]);
   }
 
   return (
@@ -81,7 +83,7 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
               ))}
             </CardContent>
             <CardFooter>
-              <Button variant='neutral' disabled={chequeadas < materiasDudosas.length} onClick={onSubmit}>
+              <Button variant='default' disabled={chequeadas < materiasDudosas.length} onClick={onSubmit}>
                 Continuar
               </Button>
             </CardFooter>

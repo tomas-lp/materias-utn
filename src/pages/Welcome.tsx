@@ -2,7 +2,7 @@ import WelcomeStep1 from '@/components/welcome/WelcomeStep1';
 import WelcomeStep2 from '@/components/welcome/WelcomeStep2';
 import WelcomeStep3 from '@/components/welcome/WelcomeStep3';
 import { useUserData } from '@/hooks/useUserData';
-import { MateriaCursando } from '@/types/data';
+import type { MateriaCursando } from '@/types/data';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -34,6 +34,14 @@ export default function Welcome() {
       aprobadas: materiasAprobadas,
     };
     create(data);
+  }
+
+  function addMateriasCursadas(materias: string[]) {
+    setMateriasCursadas((m) => [...m, ...materias]);
+  }
+
+  function addMateriasAprobadas(materias: string[]) {
+    setMateriasAprobadas((m) => [...m, ...materias]);
   }
 
   useEffect(() => {
@@ -73,8 +81,8 @@ export default function Welcome() {
           }
           onSubmit={handleSubmit}
           materiasSeleccionadas={materiasSeleccionadas}
-          setMateriasCursadas={setMateriasCursadas}
-          setMateriasAprobadas={setMateriasAprobadas}
+          addMateriasCursadas={addMateriasCursadas}
+          addMateriasAprobadas={addMateriasAprobadas}
         />
       </div>
     </div>

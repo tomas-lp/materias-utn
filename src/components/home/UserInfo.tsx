@@ -28,7 +28,7 @@ export default function UserInfo(props: Props) {
   return (
     <div className='relative w-fit'>
       <div className='flex items-center space-x-2 select-none cursor-pointer mb-2'>
-        <Badge variant='neutral' className='font-semibold'>ISI</Badge>
+        <Badge variant='default' className='font-semibold'>ISI</Badge>
         <div className='flex justify-center items-center space-x-1'>
           <span className='text-lg font-semibold'>Tomás</span>
           <ChevronDown className={`mt-[2px] ${props.open && 'rotate-180'}`} />
@@ -86,7 +86,7 @@ export default function UserInfo(props: Props) {
             </div>
           </CardContent>
           <CardFooter>
-            <Button variant='neutral'>Guardar cambios</Button>
+            <Button variant='default'>Guardar cambios</Button>
           </CardFooter>
         </Card>
       )}

@@ -1,7 +1,7 @@
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Plus, X, Star, Check } from 'lucide-react';
-import { Materia } from '@/types/data';
+import type { Materia } from '@/types/data';
 import materias from '@/data/materias.json';
 import { useUserData } from '@/hooks/useUserData';
 import { useMaterias } from '@/hooks/useMaterias';
@@ -118,7 +118,7 @@ export default function ListItemInfo(props: Props) {
                   ))}
                 </div>
                 <Button
-                  variant='neutral'
+                  variant='default'
                   className='w-full px-8'
                   onClick={() => marcarCursando(comision.nombre)}
                 >
@@ -146,15 +146,15 @@ export default function ListItemInfo(props: Props) {
                 </span>
               ))}
             </div>
-            <Button variant='neutral' className='w-full px-8' onClick={marcarRegular}>
+            <Button variant='default' className='w-full px-8' onClick={marcarRegular}>
               <Check className='w-4' />
               Marcar como regular
             </Button>
-            <Button variant='neutral' className='w-full px-8' onClick={marcarAprobada}>
+            <Button variant='default' className='w-full px-8' onClick={marcarAprobada}>
               <Star className='w-4' />
               Marcar como aprobada
             </Button>
-            <Button variant='neutral' className='w-full px-8' onClick={quitarCursando}>
+            <Button variant='default' className='w-full px-8' onClick={quitarCursando}>
               <X className='w-4' />
               Quitar del horario
             </Button>
@@ -168,11 +168,11 @@ export default function ListItemInfo(props: Props) {
               <span className='font-medium text-sm'>Regular</span>
             </div>
 
-            <Button variant='neutral' className='w-full px-8' onClick={marcarAprobada}>
+            <Button variant='default' className='w-full px-8' onClick={marcarAprobada}>
               <Star className='w-4' />
               Marcar como aprobada
             </Button>
-            <Button variant='neutral' className='w-full px-8' onClick={quitarRegular}>
+            <Button variant='default' className='w-full px-8' onClick={quitarRegular}>
               <X className='w-4' />
               Quitar de regulares
             </Button>
@@ -186,7 +186,7 @@ export default function ListItemInfo(props: Props) {
               <span className='font-medium text-sm'>Aprobada</span>
             </div>
 
-            <Button variant='neutral' className='w-full px-8' onClick={quitarAprobada}>
+            <Button variant='default' className='w-full px-8' onClick={quitarAprobada}>
               <X className='w-4' />
               Quitar de aprobadas
             </Button>

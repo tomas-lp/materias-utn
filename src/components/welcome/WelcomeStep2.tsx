@@ -8,12 +8,12 @@ import {
 } from '@/components/ui/card';
 
 import { Button } from '@/components/ui/button';
-import { SearchInput } from '../ui/input';
+import { Input } from '../ui/input';
 import WelcomeListItem from './WelcomeListItem';
 import { motion } from 'motion/react';
 import materias from '@/data/materias.json';
 import { useEffect, useState } from 'react';
-import { Materia, MateriaCursando, Comision } from '@/types/data';
+import type { Materia, MateriaCursando, Comision } from '@/types/data';
 
 type Props = {
   materiasSeleccionadas: MateriaCursando[];
@@ -70,7 +70,7 @@ export default function WelcomeStep2(props: Props) {
               </CardDescription>
             </CardHeader>
             <CardContent className='flex flex-col space-y-4 flex-grow overflow-hidden py-1'>
-              <SearchInput
+              <Input
                 placeholder='Ingresa un nombre...'
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
@@ -100,7 +100,7 @@ export default function WelcomeStep2(props: Props) {
               </div>
             </CardContent>
             <CardFooter>
-              <Button variant='neutral' onClick={props.onSubmit}>
+              <Button variant='default' onClick={props.onSubmit}>
                 Continuar
               </Button>
             </CardFooter>

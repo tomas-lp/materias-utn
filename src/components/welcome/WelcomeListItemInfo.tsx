@@ -1,7 +1,7 @@
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Plus } from 'lucide-react';
-import { Comision, Materia } from '@/types/data';
+import type { Comision, Materia } from '@/types/data';
 
 type Props = {
   materia: Materia;
@@ -25,7 +25,7 @@ export default function WelcomeListItemInfo(props: Props) {
             )}
           </div>
           <Button
-            variant='neutral'
+            variant='default'
             className='w-full px-8'
             onClick={() => props.handleAdd && props.handleAdd(comision)}
           >
