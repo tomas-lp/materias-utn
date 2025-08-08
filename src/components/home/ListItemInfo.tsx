@@ -140,8 +140,8 @@ export default function ListItemInfo(props: Props) {
             <div className='flex flex-col'>
               <span className='font-bold text-sm'>{getInfoComision()?.nombre}</span>
 
-              {getInfoComision()?.horario.map((horarioDia) => (
-                <span className='font-base text-sm'>
+              {getInfoComision()?.horario.map((horarioDia, i) => (
+                <span className='font-base text-sm' key={i}>
                   {horarioDia.dia}: {horarioDia.desde} - {horarioDia.hasta}
                 </span>
               ))}

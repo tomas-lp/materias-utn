@@ -89,7 +89,7 @@
       {
         "nombre": "K1.3",
         "horario": [
-          { "dia": "Miercoles", "desde": "13:30", "hasta": "14:15" },
+          { "dia": "Lunes", "desde": "13:30", "hasta": "14:15" },
           { "dia": "Viernes", "desde": "16:35", "hasta": "17:20" }
         ]
       }
