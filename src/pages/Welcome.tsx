@@ -36,6 +36,14 @@ export default function Welcome() {
     create(data);
   }
 
+  function addMateriaToSeleccionadas(materia: MateriaCursando) {
+    setMateriasSeleccionadas((m) => [...m, materia]);
+  }
+
+  function removeMateriaFromSeleccionadas(idMateria: string) {
+    setMateriasSeleccionadas((m) => m.filter((m) => m.materia.id !== idMateria));
+  }
+
   function addMateriasCursadas(materias: string[]) {
     setMateriasCursadas((m) => [...m, ...materias]);
   }
@@ -69,7 +77,8 @@ export default function Welcome() {
         />
         <WelcomeStep2
           materiasSeleccionadas={materiasSeleccionadas}
-          setMateriasSeleccionadas={setMateriasSeleccionadas}
+          addMateriaToSeleccionadas={addMateriaToSeleccionadas}
+          removeMateriaFromSeleccionadas={removeMateriaFromSeleccionadas}
           variant={
             welcomeStep === 2 ? 'active' : welcomeStep < 2 ? 'before' : 'after'
           }

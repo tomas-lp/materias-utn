@@ -17,7 +17,8 @@ import type { Materia, MateriaCursando, Comision } from '@/types/data';
 
 type Props = {
   materiasSeleccionadas: MateriaCursando[];
-  setMateriasSeleccionadas: (materias: MateriaCursando[]) => void;
+  addMateriaToSeleccionadas: (materia: MateriaCursando) => void;
+  removeMateriaFromSeleccionadas: (idMateria: string) => void;
   variant: 'before' | 'active' | 'after';
   onSubmit: () => void;
 };
@@ -27,10 +28,12 @@ export default function WelcomeStep2(props: Props) {
   const [materiasFiltradas, setMateriasFiltradas] =
     useState<Materia[]>(materias);
 
-  function seleccionarMateria({ materia, comision }: MateriaCursando) {
-    const nuevaMateria = { materia: materia, comision: comision };
-    const nuevasMaterias = [...props.materiasSeleccionadas, nuevaMateria];
-    props.setMateriasSeleccionadas(nuevasMaterias);
+  function seleccionarMateria(materia: MateriaCursando) {
+    props.addMateriaToSeleccionadas(materia);
+  }
+
+  function removerMateria(idMateria: string) {
+    props.removeMateriaFromSeleccionadas(idMateria);
   }
 
   useEffect(() => {
@@ -83,6 +86,7 @@ export default function WelcomeStep2(props: Props) {
                       variant='default'
                       materia={materia}
                       handleAdd={(comision: Comision) => seleccionarMateria({materia: materia, comision: comision})}
+                      handleRemove={(idMateria: string) => removerMateria(idMateria)}
                     />
                   ))}
                 </div>
@@ -93,6 +97,7 @@ export default function WelcomeStep2(props: Props) {
                         key={materia.materia.id}
                         variant='selected'
                         materia={materia.materia}
+                        handleRemove={(idMateria: string) => removerMateria(idMateria)}
                       />
                     ))}
                   </motion.div>
