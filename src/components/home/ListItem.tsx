@@ -21,7 +21,7 @@ type Props = {
 export default function ListItem(props: Props) {
   return (
     <div
-      className={`flex w-full overflow-hidden whitespace-nowrap items-center justify-between h-10 rounded-md border text-text font-base border-border bg-bw text-sm cursor-pointer px-4 py-5 hover:bg-app-border ${
+      className={`flex w-full overflow-hidden whitespace-nowrap items-center justify-between h-10 rounded-md border text-text font-base border-app-border bg-bw text-sm cursor-pointer px-4 py-5 hover:bg-app-border ${
         props.variant === 'regular' || props.variant === 'aprobada'
           ? 'bg-app-border'
           : 'bg-app-background'

@@ -63,7 +63,7 @@ export default function ListItemInfo(props: Props) {
   }
 
   return (
-    <Card className='flex flex-col rounded-md p-4 gap-4 w-64 overflow-auto whitespace-nowrap bg-bw text-app-primary max-h-[70vh]'>
+    <Card className='flex flex-col rounded-md p-4 gap-4 w-64 overflow-auto whitespace-nowrap bg-app-background text-app-primary max-h-[70vh]'>
       <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
         {props.materia.materia}
       </span>

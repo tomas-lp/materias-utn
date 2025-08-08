@@ -1,4 +1,5 @@
 import { Card } from '../ui/card';
+import './schedule.css';
 
 const Schedule = () => {
   const times = [
@@ -64,7 +65,7 @@ const Schedule = () => {
   };
 
   return (
-    <Card className='w-fit h-fit p-4 flex justify-center items-center bg-bw select-none'>
+    <Card className='w-fit h-fit p-4 flex justify-center items-center bg-bw select-none shadow-none'>
       <div
         id='schedule'
         className='grid'
@@ -116,7 +117,7 @@ const Schedule = () => {
               }}
             >
               <Card
-                className={`${classItem.color} w-full h-full flex items-start justify-start font-bold p-2`}
+                className={`${classItem.color} w-full h-full flex items-start justify-start font-bold p-2 border-none`}
               >
                 {classItem.name}
               </Card>
