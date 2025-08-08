@@ -1,4 +1,3 @@
-
 import { useMaterias } from './useMaterias';
 import { useUserDataStore } from '../store/userDataStore';
 
@@ -79,7 +78,7 @@ export function useUserData() {
 
   function addCursandoConHorario(id: string, comision: string) {
     if (!horarioLibre(id, comision)) {
-      return console.log('Error: Horario no disponible');
+      throw new Error('No hay horario libre para esta materia');
     }
     
     addCursando(id, comision);

@@ -5,6 +5,7 @@ import type { Materia } from '@/types/data';
 import materias from '@/data/materias.json';
 import { useUserData } from '@/hooks/useUserData';
 import { useMaterias } from '@/hooks/useMaterias';
+import { toast } from 'sonner';
 
 type Props = {
   variant: 'bloqueada' | 'desbloqueada' | 'cursando' | 'regular' | 'aprobada';
@@ -39,31 +40,42 @@ export default function ListItemInfo(props: Props) {
 
   function marcarRegular () {
     addRegular(props.materia.id);
+    toast.success(`${props.materia.abreviatura} agregada correctamente a regulares.`);
   }
 
   function marcarAprobada () {
     addAprobada(props.materia.id);
+    toast.success(`${props.materia.abreviatura} agregada correctamente a aprobadas.`);
   }
 
   function marcarCursando (comision: string) {
-    console.log('Hello');
-    addCursando(props.materia.id, comision);
+    try {
+      addCursando(props.materia.id, comision);
+      toast.success(`${props.materia.abreviatura} agregada correctamente.`);
+    }
+    catch {
+      toast.error('No hay horario libre para esta materia');
+      return;
+    }
   }
 
   function quitarAprobada () {
     removeAprobada(props.materia.id);
+    toast.success(`${props.materia.abreviatura} quitada correctamente de aprobadas.`);
   }
 
   function quitarRegular () {
     removeRegular(props.materia.id);
+    toast.success(`${props.materia.abreviatura} quitada correctamente de regulares.`);
   }
 
   function quitarCursando () {
     removeCursando(props.materia.id);
+    toast.success(`${props.materia.abreviatura} quitada correctamente.`);
   }
 
   return (
-    <Card className='cursor-default flex flex-col rounded-md p-4 gap-4 w-64 overflow-auto whitespace-nowrap bg-app-background text-app-primary max-h-[70vh]'>
+    <Card className='cursor-default flex flex-col rounded-md p-4 gap-4 w-64 overflow-auto whitespace-nowrap bg-app-background text-app-primary max-h-[80vh]'>
       <span className='font-semibold text-sm overflow-hidden whitespace-nowrap text-nowrap text-ellipsis'>
         {props.materia.materia}
       </span>
