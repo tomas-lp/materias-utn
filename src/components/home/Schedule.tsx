@@ -1,5 +1,8 @@
+
 import { Card } from '../ui/card';
 import './schedule.css';
+import { useUserData } from '@/hooks/useUserData';
+import { useMaterias } from '@/hooks/useMaterias';
 
 const Schedule = () => {
   const times = [
@@ -16,43 +19,33 @@ const Schedule = () => {
 
   const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 
-  const classes = [
-    {
-      name: 'AM I',
-      day: 'Lunes',
-      startTime: '14:15',
-      endTime: '15:50',
-      color: 'bg-app-blue',
-    },
-    {
-      name: 'FIS I',
-      day: 'Martes',
-      startTime: '13:30',
-      endTime: '15:00',
-      color: 'bg-app-yellow',
-    },
-    {
-      name: 'ARQ',
-      day: 'Miercoles',
-      startTime: '14:15',
-      endTime: '16:35',
-      color: 'bg-app-pink',
-    },
-    {
-      name: 'AM I',
-      day: 'Jueves',
-      startTime: '13:30',
-      endTime: '15:00',
-      color: 'bg-app-blue',
-    },
-    {
-      name: 'FIS I',
-      day: 'Viernes',
-      startTime: '15:00',
-      endTime: '17:20',
-      color: 'bg-app-yellow',
-    },
-  ];
+  function getColor(numero: number) {
+    const listaColores = ['bg-app-blue', 'bg-app-cyan', 'bg-app-pink', 'bg-app-yellow', 'bg-app-green', 'bg-app-peach', 'bg-app-purple', 'bg-app-red'];
+    return listaColores[numero % listaColores.length];
+  }
+
+  // Obtener materias cursando del usuario
+  const { userData } = useUserData();
+  const { getMateriaById, getComisionByName } = useMaterias();
+
+  // Construir clases a partir de userData.cursando
+  const clases = (userData?.cursando || [])
+    .map((cursando, i) => {
+      const materia = getMateriaById(cursando.id);
+      if (!materia) return null;
+      const comision = getComisionByName(cursando.id, cursando.comision);
+      if (!comision) return null;
+      // comision.horario: Horario[]
+      return comision.horario.map((horario) => ({
+        materia: materia.abreviatura || materia.materia,
+        dia: horario.dia,
+        desde: horario.desde,
+        hasta: horario.hasta,
+        color: getColor(i),
+      }));
+    })
+    .flat()
+    .filter((item): item is { materia: string; dia: string; desde: string; hasta: string; color: string } => !!item);
 
   const getGridPosition = (time: string) => {
     const timeIndex = times.indexOf(time);
@@ -101,15 +94,16 @@ const Schedule = () => {
           </div>
         ))}
 
-        {/* Classes */}
-        {classes.map((classItem) => {
-          const startRow = getGridPosition(classItem.startTime);
-          const endRow = getGridPosition(classItem.endTime);
-          const column = getDayColumn(classItem.day);
+        {/* Clases del usuario */}
+        {clases.map((clase, idx) => {
+          if (!clase) return null;
+          const startRow = getGridPosition(clase.desde);
+          const endRow = getGridPosition(clase.hasta);
+          const column = getDayColumn(clase.dia);
 
           return (
             <div
-              key={`${classItem.name}-${classItem.day}`}
+              key={`${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
               className='p-1'
               style={{
                 gridColumn: column,
@@ -117,9 +111,9 @@ const Schedule = () => {
               }}
             >
               <Card
-                className={`${classItem.color} w-full h-full flex items-start justify-start font-bold p-2 border-none`}
+                className={`${clase.color} w-full h-full flex items-start justify-start font-bold p-2 border-none`}
               >
-                {classItem.name}
+                {clase.materia}
               </Card>
             </div>
           );

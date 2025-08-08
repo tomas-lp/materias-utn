@@ -1,5 +1,5 @@
 import materias from '@/data/materias.json';
-import { Materia } from '@/types/data';
+import type { Materia } from '@/types/data';
 import { useEffect, useState } from 'react';
 
 export function useMaterias() {
