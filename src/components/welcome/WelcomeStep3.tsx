@@ -64,7 +64,7 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
           </Card>
         )}
 
-        {variant === 'active' && (
+        {variant === 'active' && materiasDudosas.length > 0 && (
           <Card className='w-full h-full min-w-[36rem] overflow-hidden flex flex-col'>
             <CardHeader>
               <CardTitle className='text-3xl'>3. Un paso más</CardTitle>
@@ -82,6 +82,23 @@ export default function WelcomeStep3({variant, onSubmit, materiasSeleccionadas, 
                 />
               ))}
             </CardContent>
+            <CardFooter>
+              <Button variant='default' disabled={chequeadas < materiasDudosas.length} onClick={onSubmit}>
+                Continuar
+              </Button>
+            </CardFooter>
+          </Card>
+        )}
+
+        {variant === 'active' && materiasDudosas.length === 0 && (
+          <Card className='w-full h-full min-w-[36rem] overflow-hidden flex flex-col'>
+            <CardHeader>
+              <CardTitle className='text-3xl'>3. Todo listo</CardTitle>
+              <CardDescription>
+                Tu perfil fue creado con éxito. Hacé click en el botón de abajo para continuar.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className='flex flex-grow'/>
             <CardFooter>
               <Button variant='default' disabled={chequeadas < materiasDudosas.length} onClick={onSubmit}>
                 Continuar
