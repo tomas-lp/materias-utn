@@ -28,14 +28,13 @@ const Schedule = () => {
   const { userData } = useUserData();
   const { getMateriaById, getComisionByName } = useMaterias();
 
-  // Construir clases a partir de userData.cursando
+  // Clases normales
   const clases = (userData?.cursando || [])
     .map((cursando, i) => {
       const materia = getMateriaById(cursando.id);
       if (!materia) return null;
       const comision = getComisionByName(cursando.id, cursando.comision);
       if (!comision) return null;
-      // comision.horario: Horario[]
       return comision.horario.map((horario) => ({
         materia: materia.abreviatura || materia.materia,
         dia: horario.dia,
@@ -46,6 +45,22 @@ const Schedule = () => {
     })
     .flat()
     .filter((item): item is { materia: string; dia: string; desde: string; hasta: string; color: string } => !!item);
+
+  // Clases temporales
+  let clasesTemporales: { materia: string; dia: string; desde: string; hasta: string }[] = [];
+  
+  if (userData?.temporal) {
+    const materia = getMateriaById(userData.temporal.id);
+    const comision = getComisionByName(userData.temporal.id, userData.temporal.comision);
+    if (materia && comision) {
+      clasesTemporales = comision.horario.map((horario) => ({
+        materia: (materia.abreviatura || materia.materia),
+        dia: horario.dia,
+        desde: horario.desde,
+        hasta: horario.hasta,
+      }));
+    }
+  }
 
   const getGridPosition = (time: string) => {
     const timeIndex = times.indexOf(time);
@@ -94,16 +109,15 @@ const Schedule = () => {
           </div>
         ))}
 
-        {/* Clases del usuario */}
+        {/* Clases normales */}
         {clases.map((clase, idx) => {
           if (!clase) return null;
           const startRow = getGridPosition(clase.desde);
           const endRow = getGridPosition(clase.hasta);
           const column = getDayColumn(clase.dia);
-
           return (
             <div
-              key={`${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
+              key={`normal-${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
               className='p-1 overflow-hidden'
               style={{
                 gridColumn: column,
@@ -114,6 +128,31 @@ const Schedule = () => {
                 className={`${clase.color} w-full h-full flex items-start justify-start font-bold p-2 border-none`}
               >
                 {clase.materia}
+              </Card>
+            </div>
+          );
+        })}
+
+        {/* Clases temporales */}
+        {clasesTemporales.map((clase, idx) => {
+          if (!clase) return null;
+          const startRow = getGridPosition(clase.desde);
+          const endRow = getGridPosition(clase.hasta);
+          const column = getDayColumn(clase.dia);
+          return (
+            <div
+              key={`temporal-${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
+              className='p-1 overflow-hidden'
+              style={{
+                gridColumn: column,
+                gridRow: `${startRow} / ${endRow}`,
+              }}
+            >
+              <Card
+                id='temporal'
+                className={`w-full h-full flex items-start justify-start font-bold p-2 border-none shadow-none`}
+              >
+                {/* {clase.materia} */}
               </Card>
             </div>
           );

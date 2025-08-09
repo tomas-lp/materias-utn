@@ -12,6 +12,8 @@ export function useUserData() {
     removeCursando,
     removeRegular,
     removeAprobada,
+    setTemporal,
+    clearTemporal,
   } = useUserDataStore();
 
 
@@ -82,6 +84,7 @@ export function useUserData() {
     }
     
     addCursando(id, comision);
+    clearTemporal();
   }
 
   return {
@@ -93,6 +96,8 @@ export function useUserData() {
     removeCursando,
     removeRegular,
     removeAprobada,
+    setTemporal, // Para establecer una materia temporal
+    clearTemporal, // Para limpiar la materia temporal
     puedeCursar,
     horarioLibre,
   };

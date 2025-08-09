@@ -26,7 +26,7 @@ type Props = {
 export default function ListItemInfo(props: Props) {
   //TODO: Implementar botones de agregar.
   const { getComisionByName } = useMaterias();
-  const { userData, addCursando, addRegular, addAprobada, removeCursando, removeAprobada, removeRegular } = useUserData();
+  const { userData, addCursando, addRegular, addAprobada, removeCursando, removeAprobada, removeRegular, setTemporal, clearTemporal } = useUserData();
 
   function getInfoComision() {
     const matCursando = userData?.cursando.find(
@@ -133,6 +133,8 @@ export default function ListItemInfo(props: Props) {
                   variant='default'
                   className='w-full px-8'
                   onClick={() => marcarCursando(comision.nombre)}
+                  onMouseEnter={() => setTemporal(props.materia.id, comision.nombre)}
+                  onMouseLeave={clearTemporal}
                 >
                   <Plus className='w-4' />
                   Agregar {comision.nombre}
@@ -204,9 +206,7 @@ export default function ListItemInfo(props: Props) {
             </Button>
           </>
         )}
-        <span></span>
       </div>
-      <div className='flex flex-col'></div>
     </Card>
   );
 }

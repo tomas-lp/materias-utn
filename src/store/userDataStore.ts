@@ -9,6 +9,7 @@ export type UserData = {
   }[];
   regulares: string[];
   aprobadas: string[];
+  temporal?: { id: string; comision: string } | null;
 };
 
 interface UserDataState {
@@ -20,6 +21,8 @@ interface UserDataState {
   removeRegular: (id: string) => void;
   addAprobada: (id: string) => void;
   removeAprobada: (id: string) => void;
+  setTemporal: (id: string, comision: string) => void;
+  clearTemporal: () => void;
   loadUserData: () => void;
 }
 
@@ -36,6 +39,26 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
   }
   return {
     userData: initialUserData,
+    setTemporal: (id, comision) => {
+      const userData = get().userData;
+      if (!userData) return;
+      const newUserData = {
+        ...userData,
+        temporal: { id, comision },
+      };
+      set({ userData: newUserData });
+      localStorage.setItem('userData', JSON.stringify(newUserData));
+    },
+    clearTemporal: () => {
+      const userData = get().userData;
+      if (!userData) return;
+      const newUserData = {
+        ...userData,
+        temporal: null,
+      };
+      set({ userData: newUserData });
+      localStorage.setItem('userData', JSON.stringify(newUserData));
+    },
     setUserData: (data) => {
       set({ userData: data });
       localStorage.setItem('userData', JSON.stringify(data));
