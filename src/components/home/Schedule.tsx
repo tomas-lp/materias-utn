@@ -1,4 +1,4 @@
-
+import { motion } from 'motion/react';
 import { Card } from '../ui/card';
 import './schedule.css';
 import { useUserData } from '@/hooks/useUserData';
@@ -73,7 +73,7 @@ const Schedule = () => {
   };
 
   return (
-    <Card className='w-full h-fit p-4 flex justify-center items-center bg-app-background select-none shadow-none overflow-hidden'>
+    <Card className='w-full h-fit p-4 flex justify-center items-center bg-app-background dark:bg-app-border/10 select-none shadow-none overflow-hidden'>
       <div
         id='schedule'
         className='w-full grid overflow-hidden xl:aspect-[5/4]'
@@ -89,7 +89,7 @@ const Schedule = () => {
         {days.map((day) => (
           <div
             key={day}
-            className='px-2 flex items-center justify-center font-semibold my-auto mx-auto text-app-primary overflow-hidden'
+            className='px-2 flex items-center justify-center font-medium my-auto mx-auto text-app-primary overflow-hidden'
           >
             {day.substring(0, 3)}
           </div>
@@ -99,7 +99,7 @@ const Schedule = () => {
         {times.map((time, i) => (
           <div
             key={time}
-            className='flex items-start justify-center text-sm font-bold text-app-primary overflow-hidden'
+            className='flex items-start justify-center text-sm font-medium text-app-primary overflow-hidden'
             style={{
               gridColumn: 1,
               gridRow: i + 2,
@@ -116,7 +116,9 @@ const Schedule = () => {
           const endRow = getGridPosition(clase.hasta);
           const column = getDayColumn(clase.dia);
           return (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               key={`normal-${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
               className='p-1 overflow-hidden'
               style={{
@@ -125,11 +127,11 @@ const Schedule = () => {
               }}
             >
               <Card
-                className={`${clase.color} w-full h-full flex items-start justify-start font-bold p-2 border-none`}
+                className={`${clase.color} w-full h-full flex items-start justify-start font-semibold p-2 border-none text-sm 2xl:text-base`}
               >
                 {clase.materia}
               </Card>
-            </div>
+            </motion.div>
           );
         })}
 
@@ -140,7 +142,9 @@ const Schedule = () => {
           const endRow = getGridPosition(clase.hasta);
           const column = getDayColumn(clase.dia);
           return (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               key={`temporal-${clase.materia}-${clase.dia}-${clase.desde}-${idx}`}
               className='p-1 overflow-hidden'
               style={{
@@ -150,11 +154,11 @@ const Schedule = () => {
             >
               <Card
                 id='temporal'
-                className={`w-full h-full flex items-start justify-start font-bold p-2 border-none shadow-none`}
+                className={`w-full h-full flex items-start justify-start font-medium p-2 border-none shadow-none`}
               >
                 {/* {clase.materia} */}
               </Card>
-            </div>
+            </motion.div>
           );
         })}
       </div>

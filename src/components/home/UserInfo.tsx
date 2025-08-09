@@ -19,18 +19,21 @@ import {
 import { Label } from '../ui/label';
 import { Badge } from '../ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useUserData } from '@/hooks/useUserData';
 
 type Props = {
   open?: boolean;
 };
 
 export default function UserInfo(props: Props) {
+  const { userData } = useUserData();
+
   return (
     <div className='relative w-fit'>
       <div className='flex items-center space-x-2 select-none cursor-pointer mb-2'>
-        <Badge variant='default' className='font-semibold'>ISI</Badge>
+        <Badge variant='default' className='font-semibold'>{userData?.carrera.toUpperCase()}</Badge>
         <div className='flex justify-center items-center space-x-1'>
-          <span className='text-lg font-semibold'>Tomás</span>
+          <span className='text-lg font-semibold'>{userData?.nombre}</span>
           <ChevronDown className={`mt-[2px] ${props.open && 'rotate-180'}`} />
         </div>
       </div>
