@@ -4,13 +4,17 @@ import ListItem from '@/components/home/ListItem';
 import materias from '../data/materias.json';
 import Schedule from '@/components/home/Schedule';
 import { useUserData } from '../hooks/useUserData';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Toaster } from '@/components/ui/sonner';
+import type { Materia } from '@/types/data';
 
 export default function Home() {
   const { userData, puedeCursar } = useUserData();
   const navigate = useNavigate();
+  const [busqueda, setBusqueda] = useState('');
+  const [materiasFiltradas, setMateriasFiltradas] =
+    useState<Materia[]>(materias);
 
   // Datos de ejemplo
   useEffect(() => {
@@ -25,6 +29,13 @@ export default function Home() {
     loader();
   }, [userData, navigate]);
 
+  useEffect(() => {
+    const filtradas = materias.filter((materia) =>
+      materia.materia.toLowerCase().includes(busqueda.toLowerCase())
+    );
+    setMateriasFiltradas(filtradas);
+  }, [busqueda]);
+
   return (
     <>
       <div className='w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden'>
@@ -35,9 +46,9 @@ export default function Home() {
               <div className='w-full flex items-start text-app-primary space-x-8 pr-4'>
                 <div className='flex flex-col space-y-4 w-[50%]'>
                   <span className='text-2xl font-semibold sticky'>Materias</span>
-                  <SearchInput placeholder='Ingresa un nombre...' />
+                  <SearchInput placeholder='Ingresa un nombre...' value={busqueda} onChange={(e) => setBusqueda(e.target.value)}/>
                   <div className='flex flex-col w-full space-y-2 pr-2 overflow-auto max-h-[50vh]'>
-                    {materias.map((materia) => {
+                    {materiasFiltradas.map((materia) => {
                       let variant:
                         | 'bloqueada'
                         | 'desbloqueada'
