@@ -3,12 +3,12 @@ import WelcomeStep2 from '@/components/welcome/WelcomeStep2';
 import WelcomeStep3 from '@/components/welcome/WelcomeStep3';
 import { useUserData } from '@/hooks/useUserData';
 import type { MateriaCursando } from '@/types/data';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
 export default function Welcome() {
   const navigate = useNavigate();
-  const { userData, create } = useUserData();
+  const { create } = useUserData();
   const [welcomeStep, setWelcomeStep] = useState(1);
   const [nombre, setNombre] = useState('');
   const [carrera, setCarrera] = useState('');
