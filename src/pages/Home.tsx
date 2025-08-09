@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden'>
+      <div className='w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden dark'>
         {userData && (
           <div className='w-full p-8 max-w-screen-2xl h-full grid grid-cols-2 gap-4 text-app-primary'>
             <div className='border-r border-app-border flex flex-col space-y-16'>
