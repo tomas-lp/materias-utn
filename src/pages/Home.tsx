@@ -8,9 +8,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Toaster } from '@/components/ui/sonner';
 import type { Materia } from '@/types/data';
+import ThemeToggle from '@/components/home/ThemeToggle';
 
 export default function Home() {
-  const { userData, puedeCursar } = useUserData();
+  const { userData, puedeCursar, darkMode } = useUserData();
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState('');
   const [materiasFiltradas, setMateriasFiltradas] =
@@ -38,11 +39,14 @@ export default function Home() {
 
   return (
     <>
-      <div className='w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden'>
+      <div className={`w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden ${darkMode && 'dark'}`}>
         {userData && (
           <div className='w-full p-8 max-w-screen-2xl h-full grid grid-cols-2 gap-4 text-app-primary'>
             <div className='border-r border-app-border flex flex-col space-y-16'>
-              <UserInfo />
+              <div className='flex space-x-2 items-center'>
+                <UserInfo />
+                <ThemeToggle />
+              </div>
               <div className='w-full flex items-start text-app-primary space-x-8 pr-4'>
                 <div className='flex flex-col space-y-4 w-[50%]'>
                   <span className='text-2xl font-semibold sticky'>Materias</span>

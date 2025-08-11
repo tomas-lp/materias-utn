@@ -30,7 +30,7 @@ export default function UserInfo(props: Props) {
 
   return (
     <div className='relative w-fit'>
-      <div className='flex items-center space-x-2 select-none cursor-pointer mb-2'>
+      <div className='flex items-center space-x-2 select-none cursor-pointer'>
         <Badge variant='default' className='font-semibold'>{userData?.carrera.toUpperCase()}</Badge>
         <div className='flex justify-center items-center space-x-1'>
           <span className='text-lg font-semibold'>{userData?.nombre}</span>
@@ -39,7 +39,7 @@ export default function UserInfo(props: Props) {
       </div>
 
       {props.open && (
-        <Card className='w-96 shadow-sm shadow-primary/10 absolute top-[100%] z-10'>
+        <Card className='w-96 shadow-sm shadow-primary/10 absolute top-[100%] z-10 mt-2'>
           <CardHeader>
             <CardTitle className='font-semibold text-base'>
               Configuración del usuario

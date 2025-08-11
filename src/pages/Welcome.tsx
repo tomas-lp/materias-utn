@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 
 export default function Welcome() {
   const navigate = useNavigate();
-  const { create } = useUserData();
+  const { create, darkMode } = useUserData();
   const [welcomeStep, setWelcomeStep] = useState(1);
   const [nombre, setNombre] = useState('');
   const [carrera, setCarrera] = useState('');
@@ -32,6 +32,7 @@ export default function Welcome() {
       cursando: materiasCursando,
       regulares: materiasCursadas,
       aprobadas: materiasAprobadas,
+      darkMode: true,
     };
     create(data);
 
@@ -65,7 +66,7 @@ export default function Welcome() {
   // }, [userData, navigate]);
 
   return (
-    <div className='w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden'>
+    <div className={`w-screen h-screen bg-app-background flex justify-center items-center overflow-hidden ${darkMode && 'dark'}`}>
       <div className='w-full h-full max-h-[720px] max-w-screen-2xl p-8 flex flex-row justify-center items-center space-x-16 text-app-primary'>
         <WelcomeStep1
           nombre={nombre}

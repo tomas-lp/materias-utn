@@ -14,6 +14,7 @@ export type UserData = {
 
 interface UserDataState {
   userData: UserData | null;
+  darkMode: boolean;
   setUserData: (data: UserData) => void;
   addCursando: (id: string, comision: string) => void;
   removeCursando: (id: string) => void;
@@ -24,6 +25,7 @@ interface UserDataState {
   setTemporal: (id: string, comision: string) => void;
   clearTemporal: () => void;
   loadUserData: () => void;
+  toggleDarkMode: () => void;
 }
 
 export const useUserDataStore = create<UserDataState>()((set, get) => {
@@ -37,6 +39,17 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
   } catch {
     initialUserData = null;
   }
+
+  // Al inicializar el store, cargar darkMode de localStorage
+  let initialDarkMode: boolean;
+  const rawDarkMode = localStorage.getItem('darkMode');
+  if (rawDarkMode) {
+    initialDarkMode = JSON.parse(rawDarkMode);
+  } else {
+    initialDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    localStorage.setItem('darkMode', initialDarkMode.toString());
+  }
+
   return {
     userData: initialUserData,
     setTemporal: (id, comision) => {
@@ -142,6 +155,11 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
         return;
       }
       set({ userData: JSON.parse(rawData) });
+    },
+    darkMode: initialDarkMode,
+    toggleDarkMode: () => {
+      set({ darkMode: !get().darkMode });
+      localStorage.setItem('darkMode', get().darkMode.toString());
     },
   };
 });

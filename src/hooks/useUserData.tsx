@@ -5,6 +5,7 @@ export function useUserData() {
   const { getMateriaById, getComisionByName } = useMaterias();
   const {
     userData,
+    darkMode,
     setUserData,
     addCursando,
     addRegular,
@@ -14,6 +15,7 @@ export function useUserData() {
     removeAprobada,
     setTemporal,
     clearTemporal,
+    toggleDarkMode,
   } = useUserDataStore();
 
 
@@ -89,6 +91,7 @@ export function useUserData() {
 
   return {
     userData,
+    darkMode,
     create: setUserData,
     addCursando: addCursandoConHorario,
     addRegular,
@@ -100,5 +103,6 @@ export function useUserData() {
     clearTemporal, // Para limpiar la materia temporal
     puedeCursar,
     horarioLibre,
+    toggleDarkMode,
   };
 }
