@@ -80,6 +80,10 @@ export default function WelcomeStep2(props: Props) {
               />
               <div className='flex flex-row space-x-4 overflow-auto'>
                 <div className='flex flex-col space-y-2 w-full overflow-auto'>
+                  {materiasFiltradas.length === 0 && 
+                    <div className='w-full py-4 px-2 border-app-border border rounded-md font-normal text-sm text-center'>No hay resultados</div>
+                  }
+
                   {materiasFiltradas.map((materia) => (
                     <WelcomeListItem
                       key={materia.id}

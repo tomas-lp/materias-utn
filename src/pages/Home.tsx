@@ -47,7 +47,11 @@ export default function Home() {
                 <div className='flex flex-col space-y-4 w-[50%]'>
                   <span className='text-2xl font-semibold sticky'>Materias</span>
                   <SearchInput placeholder='Ingresa un nombre...' value={busqueda} onChange={(e) => setBusqueda(e.target.value)}/>
-                  <div className='flex flex-col w-full space-y-2 pr-2 overflow-auto max-h-[50vh]'>
+                  <div className={`flex flex-col w-full space-y-2 overflow-auto max-h-[50vh] ${materiasFiltradas.length > 0 && 'pr-2'}`}>
+                    {materiasFiltradas.length === 0 && 
+                      <div className='w-full py-4 px-2 border-app-border border rounded-md font-normal text-sm text-center'>No hay resultados</div>
+                    }
+
                     {materiasFiltradas.map((materia) => {
                       let variant:
                         | 'bloqueada'
