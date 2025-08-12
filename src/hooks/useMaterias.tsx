@@ -18,56 +18,56 @@ export function useMaterias() {
     return materia?.comisiones.find((c) => c.nombre === comision);
   }
 
-  function calcularPrerrequisitos(currentlyStudying: string[]) {
+  function calcularPrerrequisitos(materiasCursando: string[]) {
     // Convertir IDs a strings por si acaso
-    const currentlyStudyingIds = currentlyStudying.map((id) => id.toString());
+    const IdsMateriasCursando = materiasCursando.map((id) => id.toString());
 
     // Inicializar conjuntos para evitar duplicados
     const materiasDebeCursar = new Set<string>();
     const materiasDebeAprobar = new Set<string>();
 
     // Cola para el algoritmo BFS
-    const queue = [...currentlyStudyingIds];
+    const cola = [...IdsMateriasCursando];
 
     // Procesar cada materia en la cola
-    while (queue.length > 0) {
-      const currentId = queue.shift();
+    while (cola.length > 0) {
+      const idActual = cola.shift();
 
       // Encontrar la materia actual en la lista completa
-      const currentSubject = listaMaterias.find(
-        (subject) => subject.id === currentId
+      const materiaActual = listaMaterias.find(
+        (materia) => materia.id === idActual
       );
 
-      if (!currentSubject) continue;
+      if (!materiaActual) continue;
 
       // Procesar prerrequisitos de cursada
-      currentSubject.cursadas.forEach((prerequisiteId) => {
+      materiaActual.cursadas.forEach((idPrerequisito) => {
         // Solo añadir a materiasDebeCursar si no está en materiasDebeAprobar
         if (
-          !materiasDebeAprobar.has(prerequisiteId) &&
-          !materiasDebeCursar.has(prerequisiteId)
+          !materiasDebeAprobar.has(idPrerequisito) &&
+          !materiasDebeCursar.has(idPrerequisito)
         ) {
-          materiasDebeCursar.add(prerequisiteId);
-          queue.push(prerequisiteId);
+          materiasDebeCursar.add(idPrerequisito);
+          cola.push(idPrerequisito);
         }
       });
 
       // Procesar prerrequisitos de aprobación
-      currentSubject.aprobadas.forEach((prerequisiteId) => {
-        if (!materiasDebeAprobar.has(prerequisiteId)) {
-          materiasDebeAprobar.add(prerequisiteId);
+      materiaActual.aprobadas.forEach((idPrerequisito) => {
+        if (!materiasDebeAprobar.has(idPrerequisito)) {
+          materiasDebeAprobar.add(idPrerequisito);
           // Remover de materiasDebeCursar si ya existe allí
-          materiasDebeCursar.delete(prerequisiteId);
+          materiasDebeCursar.delete(idPrerequisito);
           // Añadir a la cola si aún no ha sido procesado
-          if (!queue.includes(prerequisiteId)) {
-            queue.push(prerequisiteId);
+          if (!cola.includes(idPrerequisito)) {
+            cola.push(idPrerequisito);
           }
         }
       });
     }
 
     // Excluir las materias que está cursando actualmente de los conjuntos de prerrequisitos
-    currentlyStudyingIds.forEach((id) => {
+    IdsMateriasCursando.forEach((id) => {
       materiasDebeCursar.delete(id);
       materiasDebeAprobar.delete(id);
     });
