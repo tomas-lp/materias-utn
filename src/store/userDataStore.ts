@@ -24,7 +24,6 @@ interface UserDataState {
   removeAprobada: (id: string) => void;
   setTemporal: (id: string, comision: string) => void;
   clearTemporal: () => void;
-  loadUserData: () => void;
   toggleDarkMode: () => void;
 }
 
@@ -52,6 +51,8 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
 
   return {
     userData: initialUserData,
+    darkMode: initialDarkMode,
+
     setTemporal: (id, comision) => {
       const userData = get().userData;
       if (!userData) return;
@@ -62,6 +63,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     clearTemporal: () => {
       const userData = get().userData;
       if (!userData) return;
@@ -72,10 +74,12 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     setUserData: (data) => {
       set({ userData: data });
       localStorage.setItem('userData', JSON.stringify(data));
     },
+
     addCursando: (id, comision) => {
       const userData = get().userData;
       if (!userData) return;
@@ -86,6 +90,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     removeCursando: (id) => {
       const userData = get().userData;
       if (!userData) return;
@@ -96,6 +101,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     addRegular: (id) => {
       const userData = get().userData;
       if (!userData) return;
@@ -111,6 +117,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     removeRegular: (id) => {
       const userData = get().userData;
       if (!userData) return;
@@ -121,6 +128,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     addAprobada: (id) => {
       const userData = get().userData;
       if (!userData) return;
@@ -136,6 +144,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
+
     removeAprobada: (id) => {
       const userData = get().userData;
       if (!userData) return;
@@ -146,17 +155,7 @@ export const useUserDataStore = create<UserDataState>()((set, get) => {
       set({ userData: newUserData });
       localStorage.setItem('userData', JSON.stringify(newUserData));
     },
-    loadUserData: () => {
-      // Ya no es necesario, pero se mantiene por compatibilidad
-      // Puede usarse para forzar recarga manual si se requiere
-      const rawData = localStorage.getItem('userData');
-      if (!rawData) {
-        set({ userData: null });
-        return;
-      }
-      set({ userData: JSON.parse(rawData) });
-    },
-    darkMode: initialDarkMode,
+
     toggleDarkMode: () => {
       set({ darkMode: !get().darkMode });
       localStorage.setItem('darkMode', get().darkMode.toString());
