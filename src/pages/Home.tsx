@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router';
 import { Toaster } from '@/components/ui/sonner';
 import type { Materia } from '@/types/data';
 import ThemeToggle from '@/components/home/ThemeToggle';
+import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
 
 export default function Home() {
-  const { userData, puedeCursar, darkMode } = useUserData();
+  const { userData, puedeCursar, darkMode } = useUserData();  
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState('');
   const [materiasFiltradas, setMateriasFiltradas] =
@@ -95,8 +97,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className='h-full w-full flex flex-col space-y-16 justify-center items-end'>
+            <div className='h-full w-full flex flex-col space-y-2 justify-center items-end'>
               <Schedule />
+              <div className='w-full flex justify-center'>
+                <Button variant='ghost' className='cursor-pointer'>
+                  <Download className='w-4 h-4 text-app-primary'/>
+                  Exportar
+                </Button>
+              </div>
             </div>
           </div>
         )}
