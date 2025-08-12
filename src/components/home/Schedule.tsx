@@ -1,10 +1,13 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { Card } from '../ui/card';
 import './schedule.css';
 import { useUserData } from '@/hooks/useUserData';
 import { useMaterias } from '@/hooks/useMaterias';
 
-const Schedule = () => {
+type ScheduleProps = object;
+
+const Schedule = React.forwardRef<HTMLDivElement, ScheduleProps>((_props, ref) => {
   const times = [
     '13:30',
     '14:15',
@@ -20,7 +23,16 @@ const Schedule = () => {
   const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 
   function getColor(numero: number) {
-    const listaColores = ['bg-app-blue', 'bg-app-cyan', 'bg-app-pink', 'bg-app-yellow', 'bg-app-green', 'bg-app-peach', 'bg-app-purple', 'bg-app-red'];
+    const listaColores = [
+      'bg-app-blue',
+      'bg-app-cyan',
+      'bg-app-pink',
+      'bg-app-yellow',
+      'bg-app-green',
+      'bg-app-peach',
+      'bg-app-purple',
+      'bg-app-red',
+    ];
     return listaColores[numero % listaColores.length];
   }
 
@@ -44,17 +56,35 @@ const Schedule = () => {
       }));
     })
     .flat()
-    .filter((item): item is { materia: string; dia: string; desde: string; hasta: string; color: string } => !!item);
+    .filter(
+      (
+        item
+      ): item is {
+        materia: string;
+        dia: string;
+        desde: string;
+        hasta: string;
+        color: string;
+      } => !!item
+    );
 
   // Clases temporales
-  let clasesTemporales: { materia: string; dia: string; desde: string; hasta: string }[] = [];
-  
+  let clasesTemporales: {
+    materia: string;
+    dia: string;
+    desde: string;
+    hasta: string;
+  }[] = [];
+
   if (userData?.temporal) {
     const materia = getMateriaById(userData.temporal.id);
-    const comision = getComisionByName(userData.temporal.id, userData.temporal.comision);
+    const comision = getComisionByName(
+      userData.temporal.id,
+      userData.temporal.comision
+    );
     if (materia && comision) {
       clasesTemporales = comision.horario.map((horario) => ({
-        materia: (materia.abreviatura || materia.materia),
+        materia: materia.abreviatura || materia.materia,
         dia: horario.dia,
         desde: horario.desde,
         hasta: horario.hasta,
@@ -73,7 +103,7 @@ const Schedule = () => {
   };
 
   return (
-    <Card className='w-full h-fit p-4 flex justify-center items-center bg-app-background dark:bg-app-border/10 select-none shadow-none overflow-hidden'>
+    <Card ref={ref} className='w-full h-fit p-4 flex justify-center items-center bg-app-background dark:bg-app-background-secondary select-none shadow-none overflow-hidden'>
       <div
         id='schedule'
         className='w-full grid overflow-hidden xl:aspect-[5/4]'
@@ -164,6 +194,6 @@ const Schedule = () => {
       </div>
     </Card>
   );
-};
+});
 
 export default Schedule;

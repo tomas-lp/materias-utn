@@ -60,6 +60,7 @@
   --color-app-disabled: var(--disabled-color);
 
   --color-app-background: var(--background-color);
+  --color-app-background-secondary: var(--background-secondary-color);
 }
 
 :root {
@@ -166,6 +167,7 @@
   --secondary-color: #d1d1d1;
 
   --background-color: #121212;
+  --background-secondary-color: #151515;
 }
 
 @layer base {

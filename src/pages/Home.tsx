@@ -4,16 +4,20 @@ import ListItem from '@/components/home/ListItem';
 import materias from '../data/materias.json';
 import Schedule from '@/components/home/Schedule';
 import { useUserData } from '../hooks/useUserData';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Toaster } from '@/components/ui/sonner';
 import type { Materia } from '@/types/data';
 import ThemeToggle from '@/components/home/ThemeToggle';
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
+import { Download, Loader2Icon } from 'lucide-react';
+import { exportAsImage } from '@/utils/misc';
+import { toast } from 'sonner';
 
 export default function Home() {
-  const { userData, puedeCursar, darkMode } = useUserData();  
+  const { userData, puedeCursar, darkMode } = useUserData();
+  const scheduleRef = useRef<HTMLDivElement>(null);
+  const [loadingExport, setLoadingExport] = useState(false);
   const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState('');
   const [materiasFiltradas, setMateriasFiltradas] =
@@ -38,6 +42,14 @@ export default function Home() {
     );
     setMateriasFiltradas(filtradas);
   }, [busqueda]);
+
+  async function handleExport() {
+    setLoadingExport(true);
+    if (!scheduleRef.current) return;
+    await exportAsImage(scheduleRef.current);
+    setLoadingExport(false);
+    toast.success('Horario exportado correctamente.');
+  }
 
   return (
     <>
@@ -98,11 +110,14 @@ export default function Home() {
               </div>
             </div>
             <div className='h-full w-full flex flex-col space-y-2 justify-center items-end'>
-              <Schedule />
+              <Schedule ref={scheduleRef}/>
               <div className='w-full flex justify-center'>
-                <Button variant='ghost' className='cursor-pointer'>
-                  <Download className='w-4 h-4 text-app-primary'/>
-                  Exportar
+                <Button disabled={loadingExport} variant='ghost' className='cursor-pointer' onClick={handleExport}>
+                  {loadingExport ? 
+                    <Loader2Icon className='w-4 h-4 text-app-primary animate-spin'/> :
+                    <Download className='w-4 h-4 text-app-primary'/>
+                  }
+                  Exportar como imagen
                 </Button>
               </div>
             </div>
